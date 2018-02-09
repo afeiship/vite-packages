@@ -1,29 +1,84 @@
-import React,{PureComponent} from 'react';
-
+import {Form, Button} from 'antd';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import noop from 'noop';
-import objectAssign from 'object-assign';
+import objectAssin from 'object-assign';
 
-export default class extends PureComponent{
-  /*===properties start===*/
-  static propTypes = {
-    className:PropTypes.string
-  };
+export default Form.create()(
+  class extends React.Component {
+    /*===properties start===*/
+    static propTypes = {
+      className : PropTypes.string,
+      fieldsValue : PropTypes.object,
+      items : PropTypes.array,
+      onLoad : PropTypes.func,
+      onLoad : PropTypes.func,
+      formLayout : PropTypes.object,
+      submitText : PropTypes.any,
+    };
 
-  static defaultProps = {
-  };
-  /*===properties end===*/
+    static defaultProps = {
+      fieldsValue:{},
+      onSubmit: noop,
+      onLoad: noop,
+      formLayout: {
+        labelCol: { span: 6 },
+        wrapperCol: { span: 16 },
+      },
+      items: [],
+      submitText: 'Save'
+    };
+    /*===properties end===*/
 
-  constructor(props) {
-    super(props);
-    this.state = {};
+    componentDidMount() {
+      const {onLoad,fieldsValue, form} = this.props;
+      const {getFieldDecorator, setFields} = form;
+      objectAssin(this, { $form: form });
+      setFields(fieldsValue);
+      onLoad({
+        target: {
+          sender: this,
+          value: this.props
+        }
+      });
+    }
+
+    _onSubmit = e => {
+      e.preventDefault();
+      const { onSubmit, form } = this.props;
+      form.validateFields((err, values) => {
+        if (!err) {
+          onSubmit(values);
+        }
+      });
+    };
+
+    render() {
+      const {className, items, formLayout, submitText} = this.props;
+      const {getFieldDecorator} = this.props.form;
+      return (
+        <Form
+          onSubmit={this.onSubmit}
+          className={classNames("react-ant-form", className)}>
+          {
+            (items.length > 0) && items.map((item, index) => {
+              return (
+                <Form.Item className="react-ant-form-field" {...formLayout} key={index} label={item.label}>
+                  {getFieldDecorator(item.field, {
+                    rules: item.rules
+                  })(<item.component {...item.props}/>)}
+                </Form.Item>
+              )
+            })
+          }
+          <Form.Item {...formLayout} className="react-ant-form-submit" label="&nbsp;" colon={false}>
+            <Button
+              htmlType="submit"
+              type="primary"
+              onClick={this._onSubmit}>{submitText}</Button>
+          </Form.Item>
+        </Form>
+      );
+    }
   }
-
-  render(){
-    const {className,...props} = this.props;
-    return (
-      <div {...props} className={classNames('react-ant-form',className)} />
-    );
-  }
-}
+);
