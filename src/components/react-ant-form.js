@@ -11,7 +11,7 @@ export default Form.create()(
       className : PropTypes.string,
       fieldsValue : PropTypes.object,
       items : PropTypes.array,
-      onLoad : PropTypes.func,
+      onSubmit : PropTypes.func,
       onLoad : PropTypes.func,
       formLayout : PropTypes.object,
       submitText : PropTypes.any,

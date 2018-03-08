@@ -9,7 +9,7 @@
       className : PropTypes.string,
       fieldsValue : PropTypes.object,
       items : PropTypes.array,
-      onLoad : PropTypes.func,
+      onSubmit : PropTypes.func,
       onLoad : PropTypes.func,
       formLayout : PropTypes.object,
       submitText : PropTypes.any,
@@ -92,8 +92,10 @@ class App extends React.Component{
 
 ## customize style:
 ```scss
-// customize your exception styles:
+// customize your styles:
 $react-ant-form-options:(
+  ant-btn-width:30%,
+  field-margin-bottom:10px
 );
 
 @import '~node_modules/react-ant-form/style.scss';
