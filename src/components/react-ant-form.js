@@ -15,6 +15,7 @@ export default Form.create()(
       onLoad : PropTypes.func,
       formLayout : PropTypes.object,
       submitText : PropTypes.any,
+      submitClassName : PropTypes.string,
     };
 
     static defaultProps = {
@@ -54,7 +55,7 @@ export default Form.create()(
     };
 
     render() {
-      const {className, items, formLayout, submitText} = this.props;
+      const {className, items, formLayout, submitText, submitClassName} = this.props;
       const {getFieldDecorator} = this.props.form;
       return (
         <Form
@@ -75,6 +76,7 @@ export default Form.create()(
             <Button
               htmlType="submit"
               type="primary"
+              className={submitClassName}
               onClick={this._onSubmit}>{submitText}</Button>
           </Form.Item>
         </Form>
