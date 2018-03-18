@@ -27,7 +27,12 @@ export default Form.create()(
         wrapperCol: { span: 16 },
       },
       items: [],
-      submitText: 'Save'
+      submitText: 'Save',
+      submitLabel: '&nbsp;',
+      submitProps : {
+        type: 'primary',
+        htmlType: 'submit'
+      }
     };
     /*===properties end===*/
 
@@ -55,7 +60,7 @@ export default Form.create()(
     };
 
     render() {
-      const {className, items, formLayout, submitText, submitClassName} = this.props;
+      const {className, items, formLayout, submitLabel, submitProps} = this.props;
       const {getFieldDecorator} = this.props.form;
       return (
         <Form
@@ -72,12 +77,10 @@ export default Form.create()(
               )
             })
           }
-          <Form.Item {...formLayout} className="react-ant-form-submit" label="&nbsp;" colon={false}>
+          <Form.Item {...formLayout} className="react-ant-form-submit" label={submitLabel} colon={false}>
             <Button
-              htmlType="submit"
-              type="primary"
-              className={submitClassName}
-              onClick={this._onSubmit}>{submitText}</Button>
+              {...submitProps}
+              onClick={this._onSubmit} />
           </Form.Item>
         </Form>
       );
