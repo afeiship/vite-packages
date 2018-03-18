@@ -55,7 +55,10 @@ class App extends React.Component{
   render(){
     return (
       <div className="hello-react-ant-form">
-        <ReactAntForm fieldsValue={this.state.fieldsValue} onSubmit={this._onSubmit} items={this.state.items} ref='rc' />
+        <ReactAntForm
+        fieldsValue={this.state.fieldsValue}
+        onSubmit={this._onSubmit}
+        items={this.state.items} ref='rc' />
       </div>
     );
   }
