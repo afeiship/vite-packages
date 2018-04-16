@@ -12,7 +12,7 @@
       onSubmit : PropTypes.func,
       onLoad : PropTypes.func,
       formLayout : PropTypes.object,
-      submitText : PropTypes.any,
+      submitProps: PropTypes.object
     };
 
     static defaultProps = {
@@ -24,7 +24,10 @@
         wrapperCol: { span: 16 },
       },
       items: [],
-      submitText: 'Save'
+      submitProps : {
+        type: 'primary',
+        htmlType: 'submit'
+      }
     };
     
 ```
@@ -82,7 +85,10 @@ class App extends React.Component{
   render(){
     return (
       <div className="hello-react-ant-form">
-        <ReactAntForm fieldsValue={this.state.fieldsValue} onSubmit={this._onSubmit} items={this.state.items} ref='rc' />
+        <ReactAntForm
+        fieldsValue={this.state.fieldsValue}
+        onSubmit={this._onSubmit}
+        items={this.state.items} ref='rc' />
       </div>
     );
   }
