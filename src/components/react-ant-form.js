@@ -14,8 +14,7 @@ export default Form.create()(
       onSubmit : PropTypes.func,
       onLoad : PropTypes.func,
       formLayout : PropTypes.object,
-      submitText : PropTypes.any,
-      submitClassName : PropTypes.string,
+      submitProps: PropTypes.object
     };
 
     static defaultProps = {
@@ -27,8 +26,6 @@ export default Form.create()(
         wrapperCol: { span: 16 },
       },
       items: [],
-      submitText: 'Save',
-      submitLabel: '&nbsp;',
       submitProps : {
         type: 'primary',
         htmlType: 'submit'
@@ -37,8 +34,8 @@ export default Form.create()(
     /*===properties end===*/
 
     componentDidMount() {
-      const {onLoad,fieldsValue, form} = this.props;
-      const {getFieldDecorator, setFields} = form;
+      const { onLoad, fieldsValue, form } = this.props;
+      const { getFieldDecorator, setFields } = form;
       objectAssin(this, { $form: form });
       setFields(fieldsValue);
       onLoad({
@@ -60,8 +57,8 @@ export default Form.create()(
     };
 
     render() {
-      const {className, items, formLayout, submitLabel, submitProps} = this.props;
-      const {getFieldDecorator} = this.props.form;
+      const { className, items, formLayout, submitProps } = this.props;
+      const { getFieldDecorator } = this.props.form;
       return (
         <Form
           onSubmit={this.onSubmit}
