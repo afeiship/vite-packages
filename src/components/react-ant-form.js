@@ -13,8 +13,8 @@ export default Form.create()(
       items : PropTypes.array,
       onSubmit : PropTypes.func,
       onLoad : PropTypes.func,
-      submitLabel : PropTypes.string,
       formLayout : PropTypes.object,
+      submitLabel: PropTypes.string,
       submitProps: PropTypes.object
     };
 
@@ -26,7 +26,6 @@ export default Form.create()(
         labelCol: { span: 6 },
         wrapperCol: { span: 16 },
       },
-      items: [],
       submitLabel:'&nbsp;',
       submitProps : {
         type: 'primary',
