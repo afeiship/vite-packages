@@ -13,6 +13,7 @@ export default Form.create()(
       items : PropTypes.array,
       onSubmit : PropTypes.func,
       onLoad : PropTypes.func,
+      submitLabel : PropTypes.string,
       formLayout : PropTypes.object,
       submitProps: PropTypes.object
     };
@@ -26,6 +27,7 @@ export default Form.create()(
         wrapperCol: { span: 16 },
       },
       items: [],
+      submitLabel:'&nbsp;',
       submitProps : {
         type: 'primary',
         htmlType: 'submit'
@@ -57,7 +59,7 @@ export default Form.create()(
     };
 
     render() {
-      const { className, items, formLayout, submitProps } = this.props;
+      const { className, items, formLayout, submitLabel, submitProps } = this.props;
       const { getFieldDecorator } = this.props.form;
       return (
         <Form

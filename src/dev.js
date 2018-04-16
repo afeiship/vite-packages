@@ -58,7 +58,14 @@ class App extends React.Component{
         <ReactAntForm
         fieldsValue={this.state.fieldsValue}
         onSubmit={this._onSubmit}
-        items={this.state.items} ref='rc' />
+        items={this.state.items}
+        submitProps={{
+          type: 'primary',
+          htmlType: 'submit',
+          className: 'wp-10',
+          children: '保存'
+        }}
+        ref='rc' />
       </div>
     );
   }
