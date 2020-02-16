@@ -1,108 +1,125 @@
 # react-ant-form
 > React basic ant form builder.
 
-
-## properties:
-```javascript
-
-    static propTypes = {
-      className : PropTypes.string,
-      fieldsValue : PropTypes.object,
-      items : PropTypes.array,
-      onSubmit : PropTypes.func,
-      onLoad : PropTypes.func,
-      formLayout : PropTypes.object,
-      submitProps: PropTypes.object
-    };
-
-    static defaultProps = {
-      fieldsValue:{},
-      onSubmit: noop,
-      onLoad: noop,
-      formLayout: {
-        labelCol: { span: 6 },
-        wrapperCol: { span: 16 },
-      },
-      items: [],
-      submitProps : {
-        type: 'primary',
-        htmlType: 'submit'
-      }
-    };
-    
+## installation
+```shell
+npm install -S @feizheng/react-ant-form
 ```
 
-## usage:
-```jsx
+## update
+```shell
+npm update @feizheng/react-ant-form
+```
 
-// install: npm install afeiship/react-ant-form --save
-// import : import ReactAntForm from 'react-ant-form'
+## properties
+| Name        | Type   | Default  | Description                           |
+| ----------- | ------ | -------- | ------------------------------------- |
+| className   | string | -        | The extended className for component. |
+| fieldsValue | object | {}       | Default fileds value object.          |
+| items       | array  | []       | Form schema.                          |
+| onSubmit    | func   | noop     | The onSubmit event.                   |
+| onLoad      | func   | noop     | When component did mount.             |
+| formLayout  | object | -        | The formLayout for antd.Form.         |
+| submitLabel | string | '&nbsp;' | The submit label.                     |
+| submitProps | object | -        | The submit props.                     |
 
-class App extends React.Component{
-  state = {
-    fieldsValue:nx.antFieldsValue({username:'fei', password:'test', text:'etst...'}),
-    items:[
-      {
-        label:'username',
-        field:'username',
-        component:Input
-      },
-      {
-        label:'password',
-        field:'password',
-        component:Input
-      },
-      {
-        label:'test-checkbox',
-        field:'chk',
-        component:Checkbox,
-        props:{
-          children:'Agree the agreement'
+
+## usage
+1. import css
+  ```scss
+  @import "~@feizheng/react-ant-form/dist/style.scss";
+
+  // customize your styles:
+  $react-ant-form-options: ()
+  ```
+2. import js
+  ```js
+  import ReactAntForm from '@feizheng/react-ant-form';
+  import { Input, Checkbox } from 'antd';
+  import ReactDOM from 'react-dom';
+  import React from 'react';
+  import ReactAntCheckbox from '@feizheng/react-ant-checkbox';
+  import noop from '@feizheng/noop';
+  import '@feizheng/next-ant-fields-value';
+  import './assets/style.scss';
+
+  class App extends React.Component {
+    state = {
+      fieldsValue: nx.antFieldsValue({
+        username: 'fei',
+        password: 'test',
+        chk:false,
+        text: 'etst...'
+      }),
+      items: [
+        {
+          label: 'username',
+          field: 'username',
+          component: Input
+        },
+        {
+          label: 'password',
+          field: 'password',
+          component: Input
+        },
+        {
+          label: 'test-checkbox',
+          field: 'chk',
+          component: ReactAntCheckbox,
+          props: {
+            children: 'Agree the agreement'
+          }
+        },
+        {
+          label: 'Text',
+          field: 'text',
+          component: Input.TextArea
         }
-      },
-      {
-        label:'Text',
-        field:'text',
-        component:Input.TextArea
-      }
-    ]
-  };
+      ]
+    };
 
-  constructor(props){
-    super(props);
-    window.demo = this;
-    window.refs = this.refs;
-    window.rc = this.refs.rc;
-  }
+    handleSubmit = (e) => {
+      console.log(e);
+      return {
+        then: nx.noop
+      };
+    };
 
-  _onSubmit =e =>{
-    console.log(e);
-    return {
-      then: nx.noop
+    render() {
+      return (
+        <div className="app-container">
+          <ReactAntForm
+            fieldsValue={this.state.fieldsValue}
+            onSubmit={this.handleSubmit}
+            items={this.state.items}
+            submitProps={{
+              type: 'primary',
+              htmlType: 'submit',
+              className: 'wp-10',
+              children: '保存'
+            }}
+          />
+        </div>
+      );
     }
-  };
-
-  render(){
-    return (
-      <div className="hello-react-ant-form">
-        <ReactAntForm
-        fieldsValue={this.state.fieldsValue}
-        onSubmit={this._onSubmit}
-        items={this.state.items} ref='rc' />
-      </div>
-    );
   }
-}
 
-```
+  ReactDOM.render(<App />, document.getElementById('app'));
 
-## customize style:
-```scss
-// customize your styles:
-$react-ant-form-options:(
-  ant-btn-width:30%,
-  field-margin-bottom:10px
-);
+  ```
 
-@import '~node_modules/react-ant-form/style.scss';
-```
+## documentation
+- https://afeiship.github.io/react-ant-form/
+
+## resources
+- https://www.robinwieruch.de/minimal-react-webpack-babel-setup/
+- https://www.valentinog.com/blog/react-webpack-babel/
+- https://jestjs.io/docs/en/tutorial-react#snapshot-testing-with-mocks-enzyme-and-react-16
+- https://testing-library.com/docs/react-testing-library/api
+
+## todos
+- [ ] Add: semver number for every build files.
+- [ ] Add: need output css files.
+- [ ] Add: PWA support for docs.
+- [ ] Add: source.map file for dist(`you can upload for production debug`).
+- [ ] BUG: npm run dev will clean dist.

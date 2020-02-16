@@ -1,28 +1,32 @@
-/*===style-options start===*/
-$react-ant-form-options:(
-  ant-btn-width:30%,
-  field-margin-bottom:10px
-)!default;
-/*===style-options end===*/
+$react-ant-form-options: (
+  ant-btn-width: 30%,
+  field-margin-bottom: 10px
+) !default;
 
-.react-ant-form{
+.react-ant-form {
   // local var:
-  $ant-btn-width: map-get($map: $react-ant-form-options, $key: ant-btn-width);
-  $field-margin-bottom: map-get($map: $react-ant-form-options, $key: field-margin-bottom);
+  $ant-btn-width: map-get(
+    $map: $react-ant-form-options,
+    $key: ant-btn-width
+  );
+  $field-margin-bottom: map-get(
+    $map: $react-ant-form-options,
+    $key: field-margin-bottom
+  );
 
-  &-field{
+  &-field {
     margin-bottom: $field-margin-bottom;
   }
 
-  &-submit{
+  &-submit {
     margin-bottom: 0;
-    .ant-form-item-label{
-      height:0;
-      padding:0;
+    .ant-form-item-label {
+      height: 0;
+      padding: 0;
     }
-    .ant-btn{
-      @if $ant-btn-width != 0{
-       width: $ant-btn-width;
+    .ant-btn {
+      @if $ant-btn-width != 0 {
+        width: $ant-btn-width;
       }
     }
   }

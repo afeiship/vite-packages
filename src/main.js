@@ -1,2 +1,2 @@
-import ReactAntForm from 'components/react-ant-form';
+import ReactAntForm from './components';
 export default ReactAntForm;
