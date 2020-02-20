@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-ant-form",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React basic ant form builder.",
   "main": "dist/index.js",
   "scripts": {
@@ -54,6 +54,7 @@
     "@feizheng/webpack-lib-kits": "^1.1.9",
     "antd": "^3.26.9",
     "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.13.0",
     "cross-env": "^7.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",

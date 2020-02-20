@@ -76,6 +76,12 @@ export default Form.create()(
       });
     }
 
+    shouldComponentUpdate(inProps) {
+      const { fieldsValue } = inProps;
+      fieldsValue && setFields(fieldsValue);
+      return true;
+    }
+
     handleSubmit = (inEvent) => {
       inEvent.preventDefault();
       const { onSubmit, form } = this.props;
