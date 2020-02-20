@@ -77,6 +77,7 @@ export default Form.create()(
     }
 
     shouldComponentUpdate(inProps) {
+      const { setFields } = this.props.form;
       const { fieldsValue } = inProps;
       fieldsValue && setFields(fieldsValue);
       return true;
