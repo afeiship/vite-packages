@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-ant-form",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "React basic ant form builder.",
   "main": "dist/index.js",
   "scripts": {
@@ -77,6 +77,7 @@
   "dependencies": {
     "@feizheng/noop": "^1.0.0",
     "classnames": "^2.2.6",
+    "deep-equal": "^2.0.1",
     "prop-types": "^15.7.2"
   },
   "publishConfig": {

@@ -16,6 +16,7 @@ export default merge(baseConfig, {
   }),
   externals: externals.base({
     '@feizheng/noop': '@feizheng/noop',
+    'deep-equal':'deep-equal',
     'antd':'antd'
   }),
   plugins: [plugins.clean(), plugins.copyStyles()]

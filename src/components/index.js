@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import noop from '@feizheng/noop';
 import objectAssign from 'object-assign';
+import deepEqual from 'deep-equal';
 import { Form, Button } from 'antd';
 
 const CLASS_NAME = 'react-ant-form';
@@ -79,7 +80,9 @@ export default Form.create()(
     shouldComponentUpdate(inProps) {
       const { setFields } = this.props.form;
       const { fieldsValue } = inProps;
-      fieldsValue && setFields(fieldsValue);
+      if (!deepEqual(fieldsValue, this.props.fieldsValue)) {
+        setFields(fieldsValue);
+      }
       return true;
     }
 
