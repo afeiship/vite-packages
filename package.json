@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-ant-form",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "React basic ant form builder.",
   "main": "dist/index.js",
   "scripts": {

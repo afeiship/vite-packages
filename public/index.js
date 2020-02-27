@@ -12,19 +12,17 @@ class App extends React.Component {
     fieldsValue: nx.antFieldsValue({
       username: 'fei',
       password: 'test',
-      chk:false,
+      chk: false,
       text: 'etst...'
     }),
     items: [
       {
         label: 'username',
-        field: 'username',
-        component: Input
+        field: 'username'
       },
       {
         label: 'password',
-        field: 'password',
-        component: Input
+        field: 'password'
       },
       {
         label: 'test-checkbox',

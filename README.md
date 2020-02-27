@@ -12,16 +12,17 @@ npm update @feizheng/react-ant-form
 ```
 
 ## properties
-| Name        | Type   | Default  | Description                           |
-| ----------- | ------ | -------- | ------------------------------------- |
-| className   | string | -        | The extended className for component. |
-| fieldsValue | object | {}       | Default fileds value object.          |
-| items       | array  | []       | Form schema.                          |
-| onSubmit    | func   | noop     | The onSubmit event.                   |
-| onLoad      | func   | noop     | When component did mount.             |
-| formLayout  | object | -        | The formLayout for antd.Form.         |
-| submitLabel | string | '&nbsp;' | The submit label.                     |
-| submitProps | object | -        | The submit props.                     |
+| Name             | Type   | Default  | Description                           |
+| ---------------- | ------ | -------- | ------------------------------------- |
+| className        | string | -        | The extended className for component. |
+| fieldsValue      | object | {}       | Default fileds value object.          |
+| items            | array  | []       | Form schema.                          |
+| defaultComponent | any    | Input    | Default item component.               |
+| onSubmit         | func   | noop     | The onSubmit event.                   |
+| onLoad           | func   | noop     | When component did mount.             |
+| formLayout       | object | -        | The formLayout for antd.Form.         |
+| submitLabel      | string | '&nbsp;' | The submit label.                     |
+| submitProps      | object | -        | The submit props.                     |
 
 
 ## usage
@@ -48,19 +49,17 @@ npm update @feizheng/react-ant-form
       fieldsValue: nx.antFieldsValue({
         username: 'fei',
         password: 'test',
-        chk:false,
+        chk: false,
         text: 'etst...'
       }),
       items: [
         {
           label: 'username',
-          field: 'username',
-          component: Input
+          field: 'username'
         },
         {
           label: 'password',
-          field: 'password',
-          component: Input
+          field: 'password'
         },
         {
           label: 'test-checkbox',

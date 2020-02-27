@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import noop from '@feizheng/noop';
 import objectAssign from 'object-assign';
 import deepEqual from 'deep-equal';
-import { Form, Button } from 'antd';
+import { Form, Button, Input } from 'antd';
 
 const CLASS_NAME = 'react-ant-form';
 export default Form.create()(
@@ -25,6 +25,10 @@ export default Form.create()(
        * Form schema.
        */
       items: PropTypes.array,
+      /**
+       * Default item component.
+       */
+      defaultComponent: PropTypes.any,
       /**
        * The onSubmit event.
        */
@@ -50,6 +54,7 @@ export default Form.create()(
     static defaultProps = {
       fieldsValue: {},
       items: [],
+      defaultComponent: Input,
       onSubmit: noop,
       onLoad: noop,
       formLayout: {
@@ -100,6 +105,7 @@ export default Form.create()(
       const {
         className,
         items,
+        defaultComponent,
         formLayout,
         submitLabel,
         submitProps
@@ -112,6 +118,7 @@ export default Form.create()(
           className={classNames(CLASS_NAME, className)}
           onSubmit={this.handleSubmit}>
           {items.map((item, index) => {
+            const ItemComponent = item.component || defaultComponent;
             return (
               <Form.Item
                 className="react-ant-form-field"
@@ -120,7 +127,7 @@ export default Form.create()(
                 label={item.label}>
                 {getFieldDecorator(item.field, {
                   rules: item.rules
-                })(<item.component {...item.props} />)}
+                })(<ItemComponent {...item.props} />)}
               </Form.Item>
             );
           })}
