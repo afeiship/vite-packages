@@ -19,3 +19,4 @@ npm update @feizheng/react-ant-form-schema4
 ## usage
 - [react-ant-form-schema3](./packages/v3/README.md)
 - [react-ant-form-schema4](./packages/v4/README.md)
+- https://afeiship.github.io/react-ant-form-schema/

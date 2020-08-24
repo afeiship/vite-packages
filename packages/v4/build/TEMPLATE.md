@@ -42,7 +42,7 @@ __GENERATE_DAPP__
   ```
 
 ## documentation
-- https://afeiship.github.io/react-ant-form-schema4/
+- https://afeiship.github.io/react-ant-form-schema/
 
 
 ## license

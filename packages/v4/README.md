@@ -144,7 +144,7 @@ npm update @feizheng/react-ant-form-schema4
   ```
 
 ## documentation
-- https://afeiship.github.io/react-ant-form-schema4/
+- https://afeiship.github.io/react-ant-form-schema/
 
 
 ## license
