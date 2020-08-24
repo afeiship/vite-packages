@@ -18,21 +18,21 @@ class App extends React.Component {
     },
     items: [
       {
-        label: 'username',
+        label: '用户名',
         field: 'username',
         options: {
           rules: [{ required: true, message: '用户名为必选' }]
         }
       },
       {
-        label: 'password',
+        label: '密码',
         field: 'password',
         options: {
           rules: [{ required: true, message: '密码为必选' }]
         }
       },
       {
-        label: 'test-checkbox',
+        label: '用户协议',
         field: 'chk',
         component: ReactAntCheckbox,
         props: {
@@ -40,7 +40,7 @@ class App extends React.Component {
         }
       },
       {
-        label: 'Text',
+        label: '描述信息',
         field: 'text',
         component: Input.TextArea
       }
