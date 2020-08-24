@@ -138,14 +138,11 @@ export default Form.create()(
     template = ({ index, item }) => {
       const { form, template, defaultComponent } = this.props;
       const { getFieldDecorator } = form;
-      const { component, field, rules, props, decorator } = objectAssign(
-        { decorator: noop, rules: [] },
-        item
-      );
+      const { component, field, rules, props, decoratorOptions } = item;
       const ItemComponent = component || defaultComponent;
       const cb = () => {
         return getFieldDecorator(field, {
-          ...decorator(),
+          ...decoratorOptions,
           rules
         })(<ItemComponent {...props} />);
       };
