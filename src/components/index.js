@@ -53,6 +53,14 @@ export default Form.create()(
        */
       onSubmit: PropTypes.func,
       /**
+       * The form filed onChange event.
+       */
+      onChange: PropTypes.func,
+      /**
+       * The item filed onChange event.
+       */
+      onFieldChange: PropTypes.func,
+      /**
        * The submit resolved callback.
        */
       onSubmitSuccess: PropTypes.func,
@@ -92,6 +100,8 @@ export default Form.create()(
       template: DEFAULT_TEMPLATE,
       defaultComponent: Input,
       onSubmit: noop,
+      onChange: noop,
+      onFieldChange: noop,
       onSubmitSuccess: noop,
       onSubmitFailed: noop,
       onLoad: noop,
@@ -154,22 +164,39 @@ export default Form.create()(
       form.setFieldsValue(initialValue);
     };
 
+    handleItemChange = (inItem, inEvent) => {
+      const { onChange, onFieldChange, form } = this.props;
+      const value = form.getFieldsValue();
+      const { field } = inItem;
+
+      onFieldChange({ target: { field, value: inEvent.target.value } });
+      onChange({ target: { field, value } });
+    };
+
     template = ({ index, item }) => {
       const { form, template, formLayout, defaultComponent } = this.props;
       const { getFieldDecorator } = form;
-      const { component, field, props, options } = objectAssign(item, { formLayout }, item );
+      const { component, field, props, options } = objectAssign(
+        item,
+        { formLayout },
+        item
+      );
       const ItemComponent = component || defaultComponent;
       const cb = () => {
         return getFieldDecorator(field, {
           ...options
-        })(<ItemComponent {...props} />);
+        })(
+          <ItemComponent
+            onChange={this.handleItemChange.bind(this, item)}
+            {...props}
+          />
+        );
       };
       return template({ index, item }, cb);
     };
 
     render() {
       const { className } = this.props;
-
       return (
         <Form
           data-component={CLASS_NAME}

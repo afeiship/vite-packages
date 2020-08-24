@@ -25,6 +25,8 @@ npm update @feizheng/react-ant-form-schema
 | template         | func    | false    | -                                                         | The form field template.                              |
 | defaultComponent | any     | false    | Input                                                     | Default item component.                               |
 | onSubmit         | func    | false    | noop                                                      | The onSubmit event.                                   |
+| onChange         | func    | false    | noop                                                      | The form filed onChange event.                        |
+| onFieldChange    | func    | false    | noop                                                      | The item filed onChange event.                        |
 | onSubmitSuccess  | func    | false    | noop                                                      | The submit resolved callback.                         |
 | onSubmitFailed   | func    | false    | noop                                                      | The submit rejected callback.                         |
 | onLoad           | func    | false    | noop                                                      | When component did mount.                             |
@@ -109,6 +111,10 @@ npm update @feizheng/react-ant-form-schema
       console.log('rejected/failed!');
     };
 
+    handleChange = (e) => {
+      console.log('change.', e);
+    };
+
     render() {
       return (
         <div className="app-container">
@@ -118,6 +124,7 @@ npm update @feizheng/react-ant-form-schema
             items={this.state.items}
             initialValue={this.state.initialValue}
             onSubmit={this.handleSubmit}
+            onChange={this.handleChange}
             onSubmitSuccess={this.handleSubmitSuccess}
             onSubmitFailed={this.handleSubmitFailed}
             submitProps={{

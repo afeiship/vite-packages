@@ -62,6 +62,10 @@ class App extends React.Component {
     console.log('rejected/failed!');
   };
 
+  handleChange = (e) => {
+    console.log('change.', e);
+  };
+
   render() {
     return (
       <div className="app-container">
@@ -71,6 +75,7 @@ class App extends React.Component {
           items={this.state.items}
           initialValue={this.state.initialValue}
           onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
           onSubmitSuccess={this.handleSubmitSuccess}
           onSubmitFailed={this.handleSubmitFailed}
           submitProps={{
