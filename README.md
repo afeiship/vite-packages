@@ -21,22 +21,21 @@ npm update @feizheng/react-ant-form-schema
 ```
 
 ## properties
-| Name             | Type    | Required | Default                                                   | Description                                           |
-| ---------------- | ------- | -------- | --------------------------------------------------------- | ----------------------------------------------------- |
-| className        | string  | false    | -                                                         | The extended className for component.                 |
-| initialValue     | object  | false    | {}                                                        | Default fileds value object.                          |
-| items            | array   | false    | []                                                        | Form schema.                                          |
-| template         | func    | false    | -                                                         | The form field template.                              |
-| defaultComponent | any     | false    | Input                                                     | Default item component.                               |
-| onSubmit         | func    | false    | noop                                                      | The onSubmit event.                                   |
-| onChange         | func    | false    | noop                                                      | The form filed onChange event.                        |
-| onFieldChange    | func    | false    | noop                                                      | The item filed onChange event.                        |
-| onLoad           | func    | false    | noop                                                      | When component did mount.                             |
-| formLayout       | object  | false    | -                                                         | The formLayout for antd.Form.                         |
-| tailLayout       | object  | false    | -                                                         | The formLayout for last form item (eg: like actions). |
-| submit           | object  | false    | { type: 'primary', htmlType: 'submit', children: 'Save' } | The submit props.                                     |
-| reset            | object  | false    | -                                                         | The reset props.                                      |
-| actions          | element | false    | -                                                         | The actions for form.                                 |
+| Name             | Type   | Required | Default                                                   | Description                                           |
+| ---------------- | ------ | -------- | --------------------------------------------------------- | ----------------------------------------------------- |
+| className        | string | false    | -                                                         | The extended className for component.                 |
+| initialValue     | object | false    | {}                                                        | Default fileds value object.                          |
+| items            | array  | false    | []                                                        | Form schema.                                          |
+| template         | func   | false    | -                                                         | The form field template.                              |
+| defaultComponent | any    | false    | Input                                                     | Default item component.                               |
+| onSubmit         | func   | false    | noop                                                      | The onSubmit event.                                   |
+| onChange         | func   | false    | noop                                                      | The form filed onChange event.                        |
+| onFieldChange    | func   | false    | noop                                                      | The item filed onChange event.                        |
+| onLoad           | func   | false    | noop                                                      | When component did mount.                             |
+| formLayout       | object | false    | -                                                         | The formLayout for antd.Form.                         |
+| tailLayout       | object | false    | -                                                         | The formLayout for last form item (eg: like actions). |
+| submit           | object | false    | { type: 'primary', htmlType: 'submit', children: 'Save' } | The submit props.                                     |
+| reset            | object | false    | -                                                         | The reset props.                                      |
 
 
 ## item options
