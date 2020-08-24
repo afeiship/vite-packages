@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-ant-form-schema3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React basic ant form builder.",
   "main": "dist/index.js",
   "scripts": {
@@ -69,9 +69,9 @@
     "webpack-merge": "^5.1.2"
   },
   "peerDependencies": {
+    "antd": "^3.26.18",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "antd": "^3.26.18"
+    "react-dom": "^16.13.1"
   },
   "dependencies": {
     "@feizheng/noop": "^1.0.0",
