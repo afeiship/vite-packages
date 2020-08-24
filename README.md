@@ -17,21 +17,22 @@ npm update @feizheng/react-ant-form-schema
 ```
 
 ## properties
-| Name             | Type   | Required | Default                                                   | Description                                           |
-| ---------------- | ------ | -------- | --------------------------------------------------------- | ----------------------------------------------------- |
-| className        | string | false    | -                                                         | The extended className for component.                 |
-| initialValue     | object | false    | {}                                                        | Default fileds value object.                          |
-| items            | array  | false    | []                                                        | Form schema.                                          |
-| template         | func   | false    | -                                                         | The form field template.                              |
-| defaultComponent | any    | false    | Input                                                     | Default item component.                               |
-| onSubmit         | func   | false    | noop                                                      | The onSubmit event.                                   |
-| onSubmitSuccess  | func   | false    | noop                                                      | The submit resolved callback.                         |
-| onSubmitFailed   | func   | false    | noop                                                      | The submit rejected callback.                         |
-| onLoad           | func   | false    | noop                                                      | When component did mount.                             |
-| formLayout       | object | false    | { labelCol: { span: 6 }, wrapperCol: { span: 16 } }       | The formLayout for antd.Form.                         |
-| tailLayout       | object | false    | { wrapperCol: { offset: 6, span: 16 } }                   | The formLayout for last form item (eg: like actions). |
-| submitProps      | object | false    | { type: 'primary', htmlType: 'submit', children: 'Save' } | The submit props.                                     |
-| resetProps       | object | false    | null                                                      | The reset props.                                      |
+| Name             | Type    | Required | Default                                                   | Description                                           |
+| ---------------- | ------- | -------- | --------------------------------------------------------- | ----------------------------------------------------- |
+| className        | string  | false    | -                                                         | The extended className for component.                 |
+| initialValue     | object  | false    | {}                                                        | Default fileds value object.                          |
+| items            | array   | false    | []                                                        | Form schema.                                          |
+| template         | func    | false    | -                                                         | The form field template.                              |
+| defaultComponent | any     | false    | Input                                                     | Default item component.                               |
+| onSubmit         | func    | false    | noop                                                      | The onSubmit event.                                   |
+| onSubmitSuccess  | func    | false    | noop                                                      | The submit resolved callback.                         |
+| onSubmitFailed   | func    | false    | noop                                                      | The submit rejected callback.                         |
+| onLoad           | func    | false    | noop                                                      | When component did mount.                             |
+| formLayout       | object  | false    | -                                                         | The formLayout for antd.Form.                         |
+| tailLayout       | object  | false    | -                                                         | The formLayout for last form item (eg: like actions). |
+| submitProps      | object  | false    | { type: 'primary', htmlType: 'submit', children: 'Save' } | The submit props.                                     |
+| resetProps       | object  | false    | -                                                         | The reset props.                                      |
+| actions          | element | false    | -                                                         | The actions for form.                                 |
 
 
 ## usage
@@ -52,11 +53,13 @@ npm update @feizheng/react-ant-form-schema
   import noop from '@feizheng/noop';
   import './assets/style.scss';
 
+  const formLayout = { labelCol: { span: 6 }, wrapperCol: { span: 16 } };
+  const tailLayout = { wrapperCol: { offset: 6, span: 16 } };
+
   class App extends React.Component {
     state = {
       initialValue: {
         username: 'fei',
-        password: 'test',
         chk: false,
         text: 'etst...'
       },
@@ -64,12 +67,16 @@ npm update @feizheng/react-ant-form-schema
         {
           label: 'username',
           field: 'username',
-          rules: [{ required: true, message: '用户名为必选' }]
+          options: {
+            rules: [{ required: true, message: '用户名为必选' }]
+          }
         },
         {
           label: 'password',
           field: 'password',
-          rules: [{ required: true, message: '密码为必选' }]
+          options: {
+            rules: [{ required: true, message: '密码为必选' }]
+          }
         },
         {
           label: 'test-checkbox',
@@ -106,6 +113,8 @@ npm update @feizheng/react-ant-form-schema
       return (
         <div className="app-container">
           <ReactAntForm
+            formLayout={formLayout}
+            tailLayout={tailLayout}
             items={this.state.items}
             initialValue={this.state.initialValue}
             onSubmit={this.handleSubmit}

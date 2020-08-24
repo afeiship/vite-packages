@@ -9,15 +9,13 @@ import deepEqual from 'deep-equal';
 import { Form, Button, Input } from 'antd';
 
 const CLASS_NAME = 'react-ant-form-schema';
-const formLayout = { labelCol: { span: 6 }, wrapperCol: { span: 16 } };
-const tailLayout = { wrapperCol: { offset: 6, span: 16 } };
 const submitProps = { type: 'primary', htmlType: 'submit', children: 'Save' };
 
 const DEFAULT_TEMPLATE = ({ index, item }, cb) => {
   return (
     <Form.Item
       className={`${CLASS_NAME}__field`}
-      {...formLayout}
+      {...item.formLayout}
       key={index}
       label={item.label}
       children={cb()}
@@ -81,7 +79,11 @@ export default Form.create()(
       /**
        * The reset props.
        */
-      resetProps: PropTypes.object
+      resetProps: PropTypes.object,
+      /**
+       * The actions for form.
+       */
+      actions: PropTypes.element
     };
 
     static defaultProps = {
@@ -93,11 +95,27 @@ export default Form.create()(
       onSubmitSuccess: noop,
       onSubmitFailed: noop,
       onLoad: noop,
-      formLayout,
-      tailLayout,
-      submitProps,
-      resetProps: null
+      submitProps
     };
+
+    get formView() {
+      const { items } = this.props;
+      return <ReactList items={items} template={this.template} />;
+    }
+
+    get actionView() {
+      const { actions, tailLayout, submitProps, resetProps } = this.props;
+      if (actions) return actions;
+      return (
+        <Form.Item
+          {...tailLayout}
+          className={`${CLASS_NAME}__actions`}
+          colon={false}>
+          <Button {...submitProps} />
+          {resetProps && <Button onClick={this.handleReset} {...resetProps} />}
+        </Form.Item>
+      );
+    }
 
     componentDidMount() {
       const { onLoad, initialValue, form } = this.props;
@@ -132,47 +150,33 @@ export default Form.create()(
 
     handleReset = () => {
       const { initialValue, form } = this.props;
+      form.resetFields();
       form.setFieldsValue(initialValue);
     };
 
     template = ({ index, item }) => {
-      const { form, template, defaultComponent } = this.props;
+      const { form, template, formLayout, defaultComponent } = this.props;
       const { getFieldDecorator } = form;
-      const { component, field, rules, props, decoratorOptions } = item;
+      const { component, field, props, options } = objectAssign(item, { formLayout }, item );
       const ItemComponent = component || defaultComponent;
       const cb = () => {
         return getFieldDecorator(field, {
-          ...decoratorOptions,
-          rules
+          ...options
         })(<ItemComponent {...props} />);
       };
       return template({ index, item }, cb);
     };
 
     render() {
-      const {
-        className,
-        items,
-        tailLayout,
-        submitProps,
-        resetProps
-      } = this.props;
+      const { className } = this.props;
 
       return (
         <Form
           data-component={CLASS_NAME}
           className={classNames(CLASS_NAME, className)}
           onSubmit={this.handleSubmit}>
-          <ReactList items={items} template={this.template} />
-          <Form.Item
-            {...tailLayout}
-            className={`${CLASS_NAME}__actions`}
-            colon={false}>
-            <Button {...submitProps} />
-            {resetProps && (
-              <Button onClick={this.handleReset} {...resetProps} />
-            )}
-          </Form.Item>
+          {this.formView}
+          {this.actionView}
         </Form>
       );
     }

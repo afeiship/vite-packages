@@ -6,11 +6,13 @@ import ReactAntCheckbox from '@feizheng/react-ant-checkbox';
 import noop from '@feizheng/noop';
 import './assets/style.scss';
 
+const formLayout = { labelCol: { span: 6 }, wrapperCol: { span: 16 } };
+const tailLayout = { wrapperCol: { offset: 6, span: 16 } };
+
 class App extends React.Component {
   state = {
     initialValue: {
       username: 'fei',
-      password: 'test',
       chk: false,
       text: 'etst...'
     },
@@ -18,12 +20,16 @@ class App extends React.Component {
       {
         label: 'username',
         field: 'username',
-        rules: [{ required: true, message: '用户名为必选' }]
+        options: {
+          rules: [{ required: true, message: '用户名为必选' }]
+        }
       },
       {
         label: 'password',
         field: 'password',
-        rules: [{ required: true, message: '密码为必选' }]
+        options: {
+          rules: [{ required: true, message: '密码为必选' }]
+        }
       },
       {
         label: 'test-checkbox',
@@ -60,6 +66,8 @@ class App extends React.Component {
     return (
       <div className="app-container">
         <ReactAntForm
+          formLayout={formLayout}
+          tailLayout={tailLayout}
           items={this.state.items}
           initialValue={this.state.initialValue}
           onSubmit={this.handleSubmit}
