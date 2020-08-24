@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-ant-form-schema4",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "React basic ant form builder.",
   "main": "dist/index.js",
   "scripts": {
@@ -85,5 +85,5 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "gitHead": "d0e2dd92cbffc45d353fc211fba8527642494968"
+  "gitHead": "532b8a713ef2df1d3d1958e3f2ac51c1daffd300"
 }
