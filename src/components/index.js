@@ -82,11 +82,7 @@ export default class ReactAntForm extends Component {
     /**
      * The reset props.
      */
-    reset: PropTypes.object,
-    /**
-     * The actions for form.
-     */
-    actions: PropTypes.element
+    reset: PropTypes.object
   };
 
   static defaultProps = {
