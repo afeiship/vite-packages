@@ -10,7 +10,8 @@
     "docs": "cross-env NODE_ENV=docs webpack -p",
     "pages": "./bin/docs.rb",
     "start": "node build/server.js",
-    "test": "jest"
+    "test": "jest",
+    "publish-npm": "npm publish --access public"
   },
   "repository": {
     "type": "git",

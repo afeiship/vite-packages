@@ -4,6 +4,9 @@
   "devDependencies": {
     "lerna": "^3.22.1"
   },
+  "scripts": {
+    "publish-npm": "lerna publish --skip-npm && lerna run publish-npm"
+  },
   "publishConfig": {
     "access": "public"
   }
