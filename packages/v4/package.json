@@ -10,8 +10,7 @@
     "docs": "cross-env NODE_ENV=docs webpack -p",
     "pages": "./bin/docs.rb",
     "start": "node build/server.js",
-    "test": "jest",
-    "publish-npm": "npm publish --access public"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -84,6 +83,7 @@
     "prop-types": "^15.7.2"
   },
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "gitHead": "532b8a713ef2df1d3d1958e3f2ac51c1daffd300"
