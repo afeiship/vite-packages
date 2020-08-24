@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-ant-form-schema",
-  "version": "1.1.6",
+  "version": "2.0.0",
   "description": "React basic ant form builder.",
   "main": "dist/index.js",
   "scripts": {
@@ -70,14 +70,15 @@
   },
   "peerDependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "antd": "^3.26.18"
+    "react-dom": "^16.13.1"
   },
   "dependencies": {
     "@feizheng/noop": "^1.0.0",
     "@feizheng/react-list": "^1.0.1",
+    "antd": "^4.6.1",
     "autoprefixer": "^9.8.6",
     "classnames": "^2.2.6",
+    "lodash.get": "^4.4.2",
     "object-assign": "^4.1.1",
     "prop-types": "^15.7.2"
   },

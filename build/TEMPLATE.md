@@ -8,7 +8,11 @@
 
 ## installation
 ```shell
-npm install -S @feizheng/react-ant-form-schema
+# antd-v3
+npm install -S @feizheng/react-ant-form-schema@1
+
+# antd-v4
+npm install -S @feizheng/react-ant-form-schema@2
 ```
 
 ## update
