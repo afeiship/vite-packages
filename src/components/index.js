@@ -81,11 +81,7 @@ export default Form.create()(
       /**
        * The reset props.
        */
-      resetProps: PropTypes.object,
-      /**
-       * Get default field decorator.
-       */
-      decorator: PropTypes.func
+      resetProps: PropTypes.object
     };
 
     static defaultProps = {
@@ -100,8 +96,7 @@ export default Form.create()(
       formLayout,
       tailLayout,
       submitProps,
-      resetProps: null,
-      decorator: noop
+      resetProps: null
     };
 
     componentDidMount() {
@@ -143,12 +138,14 @@ export default Form.create()(
     template = ({ index, item }) => {
       const { form, template, defaultComponent } = this.props;
       const { getFieldDecorator } = form;
-      const { component, field, rules, decorator, props } = item;
+      const { component, field, rules, props } = objectAssign(
+        { decorator: noop },
+        item
+      );
       const ItemComponent = component || defaultComponent;
       const cb = () => {
         return getFieldDecorator(field, {
-          ...this.props.decorator(),
-          ...(decorator && decorator()),
+          ...decorator(),
           rules
         })(<ItemComponent {...props} />);
       };

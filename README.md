@@ -32,7 +32,6 @@ npm update @feizheng/react-ant-form-schema
 | tailLayout       | object | false    | { wrapperCol: { offset: 6, span: 16 } }                   | The formLayout for last form item (eg: like actions). |
 | submitProps      | object | false    | { type: 'primary', htmlType: 'submit', children: 'Save' } | The submit props.                                     |
 | resetProps       | object | false    | null                                                      | The reset props.                                      |
-| fieldDecorator   | func   | false    | noop                                                      | Get default field decorator.                          |
 
 
 ## usage
