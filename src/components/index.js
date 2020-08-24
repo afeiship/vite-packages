@@ -61,14 +61,6 @@ export default Form.create()(
        */
       onFieldChange: PropTypes.func,
       /**
-       * The submit resolved callback.
-       */
-      onSubmitSuccess: PropTypes.func,
-      /**
-       * The submit rejected callback.
-       */
-      onSubmitFailed: PropTypes.func,
-      /**
        * When component did mount.
        */
       onLoad: PropTypes.func,
@@ -83,11 +75,11 @@ export default Form.create()(
       /**
        * The submit props.
        */
-      submitProps: PropTypes.object,
+      submit: PropTypes.object,
       /**
        * The reset props.
        */
-      resetProps: PropTypes.object,
+      reset: PropTypes.object,
       /**
        * The actions for form.
        */
@@ -102,10 +94,8 @@ export default Form.create()(
       onSubmit: noop,
       onChange: noop,
       onFieldChange: noop,
-      onSubmitSuccess: noop,
-      onSubmitFailed: noop,
       onLoad: noop,
-      submitProps
+      submit: submitProps
     };
 
     get formView() {
@@ -114,15 +104,15 @@ export default Form.create()(
     }
 
     get actionView() {
-      const { actions, tailLayout, submitProps, resetProps } = this.props;
-      if (actions) return actions;
+      const { tailLayout, submit, reset, children } = this.props;
+      if (!submit && !reset) return children || null;
       return (
         <Form.Item
           {...tailLayout}
           className={`${CLASS_NAME}__actions`}
           colon={false}>
-          <Button {...submitProps} />
-          {resetProps && <Button onClick={this.handleReset} {...resetProps} />}
+          <Button {...submit} />
+          {reset && <Button onClick={this.handleReset} {...reset} />}
         </Form.Item>
       );
     }
@@ -132,10 +122,7 @@ export default Form.create()(
       const { setFieldsValue } = form;
       setFieldsValue(initialValue);
       onLoad({
-        target: {
-          form,
-          value: initialValue
-        }
+        target: form
       });
     }
 
@@ -150,10 +137,10 @@ export default Form.create()(
 
     handleSubmit = (inEvent) => {
       inEvent.preventDefault();
-      const { onSubmit, onSubmitSuccess, onSubmitFailed, form } = this.props;
+      const { onSubmit, form } = this.props;
       form.validateFields((err, values) => {
         if (!err) {
-          onSubmit(values).then(onSubmitSuccess).catch(onSubmitFailed);
+          onSubmit(values);
         }
       });
     };
@@ -174,18 +161,15 @@ export default Form.create()(
     };
 
     template = ({ index, item }) => {
-      const { form, template, formLayout, defaultComponent } = this.props;
+      const { form, template, defaultComponent } = this.props;
       const { getFieldDecorator } = form;
-      const { component, field, props, options } = objectAssign(
-        item,
-        { formLayout },
-        item
-      );
+      const { component, field, props, options } = item;
       const ItemComponent = component || defaultComponent;
       const cb = () => {
-        return getFieldDecorator(field, {
-          ...options
-        })(
+        return getFieldDecorator(
+          field,
+          options
+        )(
           <ItemComponent
             onChange={this.handleItemChange.bind(this, item)}
             {...props}
@@ -196,12 +180,30 @@ export default Form.create()(
     };
 
     render() {
-      const { className } = this.props;
+      const {
+        className,
+        initialValue,
+        items,
+        template,
+        defaultComponent,
+        onSubmit,
+        onChange,
+        onFieldChange,
+        onLoad,
+        formLayout,
+        tailLayout,
+        submit,
+        reset,
+        form,
+        ...props
+      } = this.props;
       return (
         <Form
+          {...formLayout}
           data-component={CLASS_NAME}
           className={classNames(CLASS_NAME, className)}
-          onSubmit={this.handleSubmit}>
+          onSubmit={this.handleSubmit}
+          {...props}>
           {this.formView}
           {this.actionView}
         </Form>

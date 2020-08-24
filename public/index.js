@@ -20,6 +20,7 @@ class App extends React.Component {
       {
         label: '用户名',
         field: 'username',
+        formLayout: { labelCol: { span: 6 }, wrapperCol: { span: 8 } },
         options: {
           rules: [{ required: true, message: '用户名为必选' }]
         }
@@ -50,17 +51,9 @@ class App extends React.Component {
   handleSubmit = (e) => {
     return new Promise((resolve, reject) => {
       console.log('submit:::', e);
-      resolve();
     });
   };
 
-  handleSubmitSuccess = (e) => {
-    console.log('resolved/success!');
-  };
-
-  handleSubmitFailed = (e) => {
-    console.log('rejected/failed!');
-  };
 
   handleChange = (e) => {
     console.log('change.', e);
@@ -76,15 +69,13 @@ class App extends React.Component {
           initialValue={this.state.initialValue}
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
-          onSubmitSuccess={this.handleSubmitSuccess}
-          onSubmitFailed={this.handleSubmitFailed}
-          submitProps={{
+          submit={{
             type: 'primary',
             htmlType: 'submit',
             className: 'wp-10',
             children: '保存'
           }}
-          resetProps={{
+          reset={{
             children: '取消'
           }}
         />

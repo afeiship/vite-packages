@@ -27,13 +27,11 @@ npm update @feizheng/react-ant-form-schema
 | onSubmit         | func    | false    | noop                                                      | The onSubmit event.                                   |
 | onChange         | func    | false    | noop                                                      | The form filed onChange event.                        |
 | onFieldChange    | func    | false    | noop                                                      | The item filed onChange event.                        |
-| onSubmitSuccess  | func    | false    | noop                                                      | The submit resolved callback.                         |
-| onSubmitFailed   | func    | false    | noop                                                      | The submit rejected callback.                         |
 | onLoad           | func    | false    | noop                                                      | When component did mount.                             |
 | formLayout       | object  | false    | -                                                         | The formLayout for antd.Form.                         |
 | tailLayout       | object  | false    | -                                                         | The formLayout for last form item (eg: like actions). |
-| submitProps      | object  | false    | { type: 'primary', htmlType: 'submit', children: 'Save' } | The submit props.                                     |
-| resetProps       | object  | false    | -                                                         | The reset props.                                      |
+| submit           | object  | false    | { type: 'primary', htmlType: 'submit', children: 'Save' } | The submit props.                                     |
+| reset            | object  | false    | -                                                         | The reset props.                                      |
 | actions          | element | false    | -                                                         | The actions for form.                                 |
 
 
@@ -76,21 +74,22 @@ npm update @feizheng/react-ant-form-schema
       },
       items: [
         {
-          label: 'username',
+          label: '用户名',
           field: 'username',
+          formLayout: { labelCol: { span: 6 }, wrapperCol: { span: 8 } },
           options: {
             rules: [{ required: true, message: '用户名为必选' }]
           }
         },
         {
-          label: 'password',
+          label: '密码',
           field: 'password',
           options: {
             rules: [{ required: true, message: '密码为必选' }]
           }
         },
         {
-          label: 'test-checkbox',
+          label: '用户协议',
           field: 'chk',
           component: ReactAntCheckbox,
           props: {
@@ -98,7 +97,7 @@ npm update @feizheng/react-ant-form-schema
           }
         },
         {
-          label: 'Text',
+          label: '描述信息',
           field: 'text',
           component: Input.TextArea
         }
@@ -108,17 +107,9 @@ npm update @feizheng/react-ant-form-schema
     handleSubmit = (e) => {
       return new Promise((resolve, reject) => {
         console.log('submit:::', e);
-        resolve();
       });
     };
 
-    handleSubmitSuccess = (e) => {
-      console.log('resolved/success!');
-    };
-
-    handleSubmitFailed = (e) => {
-      console.log('rejected/failed!');
-    };
 
     handleChange = (e) => {
       console.log('change.', e);
@@ -134,15 +125,13 @@ npm update @feizheng/react-ant-form-schema
             initialValue={this.state.initialValue}
             onSubmit={this.handleSubmit}
             onChange={this.handleChange}
-            onSubmitSuccess={this.handleSubmitSuccess}
-            onSubmitFailed={this.handleSubmitFailed}
-            submitProps={{
+            submit={{
               type: 'primary',
               htmlType: 'submit',
               className: 'wp-10',
               children: '保存'
             }}
-            resetProps={{
+            reset={{
               children: '取消'
             }}
           />
