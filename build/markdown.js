@@ -19,10 +19,11 @@ nx.declare({
     },
     replace: function() {
       const docApp = fs.readFileSync('./public/index.js').toString();
+
       nx.replaceInFile('README.md', [
         ['__GENERATE_DOCS__', rmp('./src/components/index.js')],
         ['__GENERATE_DAPP__', indentString(docApp, 2)],
-        ['../src/main', '@feizheng/react-ant-form']
+        ['../src/main', '@feizheng/react-ant-form-schema']
       ]);
     }
   }

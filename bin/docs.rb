@@ -6,7 +6,7 @@ TOKEN = ENV["GITHUB_API_TOKEN"]
 
 class DocApp
   def initialize
-    @uri = URI("https://api.github.com/repos/afeiship/react-ant-form/pages")
+    @uri = URI("https://api.github.com/repos/afeiship/react-ant-form-schema/pages")
     @http = Net::HTTP.new(@uri.host, @uri.port)
     @http.use_ssl = true
 

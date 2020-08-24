@@ -33,3 +33,15 @@ body,
     }
   }
 }
+
+.react-ant-form-schema {
+  border: 5px dashed rgba(#000, 0.15);
+  padding: 20px;
+  background: #f5f5f5;
+  transition: all 0.3s;
+
+  &:hover{
+    background: darken(#f5f5f5, 4%);
+    border-color: rgba(#000, 0.25);
+  }
+}

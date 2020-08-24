@@ -4,25 +4,26 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import ReactAntCheckbox from '@feizheng/react-ant-checkbox';
 import noop from '@feizheng/noop';
-import '@feizheng/next-ant-fields-value';
 import './assets/style.scss';
 
 class App extends React.Component {
   state = {
-    fieldsValue: nx.antFieldsValue({
+    initialValue: {
       username: 'fei',
       password: 'test',
       chk: false,
       text: 'etst...'
-    }),
+    },
     items: [
       {
         label: 'username',
-        field: 'username'
+        field: 'username',
+        rules: [{ required: true, message: '用户名为必选' }]
       },
       {
         label: 'password',
-        field: 'password'
+        field: 'password',
+        rules: [{ required: true, message: '密码为必选' }]
       },
       {
         label: 'test-checkbox',
@@ -41,24 +42,37 @@ class App extends React.Component {
   };
 
   handleSubmit = (e) => {
-    console.log(e);
-    return {
-      then: nx.noop
-    };
+    return new Promise((resolve, reject) => {
+      console.log('submit:::', e);
+      resolve();
+    });
+  };
+
+  handleSubmitSuccess = (e) => {
+    console.log('resolved/success!');
+  };
+
+  handleSubmitFailed = (e) => {
+    console.log('rejected/failed!');
   };
 
   render() {
     return (
       <div className="app-container">
         <ReactAntForm
-          fieldsValue={this.state.fieldsValue}
-          onSubmit={this.handleSubmit}
           items={this.state.items}
+          initialValue={this.state.initialValue}
+          onSubmit={this.handleSubmit}
+          onSubmitSuccess={this.handleSubmitSuccess}
+          onSubmitFailed={this.handleSubmitFailed}
           submitProps={{
             type: 'primary',
             htmlType: 'submit',
             className: 'wp-10',
             children: '保存'
+          }}
+          resetProps={{
+            children: '取消'
           }}
         />
       </div>

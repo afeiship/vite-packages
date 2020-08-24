@@ -1,65 +1,76 @@
-# react-ant-form
+# react-ant-form-schema
 > React basic ant form builder.
+
+[![version][version-image]][version-url]
+[![license][license-image]][license-url]
+[![size][size-image]][size-url]
+[![download][download-image]][download-url]
 
 ## installation
 ```shell
-npm install -S @feizheng/react-ant-form
+npm install -S @feizheng/react-ant-form-schema
 ```
 
 ## update
 ```shell
-npm update @feizheng/react-ant-form
+npm update @feizheng/react-ant-form-schema
 ```
 
 ## properties
-| Name             | Type   | Default  | Description                           |
-| ---------------- | ------ | -------- | ------------------------------------- |
-| className        | string | -        | The extended className for component. |
-| fieldsValue      | object | {}       | Default fileds value object.          |
-| items            | array  | []       | Form schema.                          |
-| defaultComponent | any    | Input    | Default item component.               |
-| onSubmit         | func   | noop     | The onSubmit event.                   |
-| onLoad           | func   | noop     | When component did mount.             |
-| formLayout       | object | -        | The formLayout for antd.Form.         |
-| submitLabel      | string | '&nbsp;' | The submit label.                     |
-| submitProps      | object | -        | The submit props.                     |
+| Name             | Type   | Required | Default                                                   | Description                                           |
+| ---------------- | ------ | -------- | --------------------------------------------------------- | ----------------------------------------------------- |
+| className        | string | false    | -                                                         | The extended className for component.                 |
+| initialValue     | object | false    | {}                                                        | Default fileds value object.                          |
+| items            | array  | false    | []                                                        | Form schema.                                          |
+| template         | func   | false    | -                                                         | The form field template.                              |
+| defaultComponent | any    | false    | Input                                                     | Default item component.                               |
+| onSubmit         | func   | false    | noop                                                      | The onSubmit event.                                   |
+| onSubmitSuccess  | func   | false    | noop                                                      | The submit resolved callback.                         |
+| onSubmitFailed   | func   | false    | noop                                                      | The submit rejected callback.                         |
+| onLoad           | func   | false    | noop                                                      | When component did mount.                             |
+| formLayout       | object | false    | { labelCol: { span: 6 }, wrapperCol: { span: 16 } }       | The formLayout for antd.Form.                         |
+| tailLayout       | object | false    | { wrapperCol: { offset: 6, span: 16 } }                   | The formLayout for last form item (eg: like actions). |
+| submitProps      | object | false    | { type: 'primary', htmlType: 'submit', children: 'Save' } | The submit props.                                     |
+| resetProps       | object | false    | null                                                      | The reset props.                                      |
+| fieldDecorator   | func   | false    | noop                                                      | Get default field decorator.                          |
 
 
 ## usage
 1. import css
   ```scss
-  @import "~@feizheng/react-ant-form/dist/style.scss";
+  @import "~@feizheng/react-ant-form-schema/dist/style.scss";
 
   // customize your styles:
-  $react-ant-form-options: ()
+  $react-ant-form-schema-options: ()
   ```
 2. import js
   ```js
-  import ReactAntForm from '@feizheng/react-ant-form';
+  import ReactAntForm from '@feizheng/react-ant-form-schema';
   import { Input, Checkbox } from 'antd';
   import ReactDOM from 'react-dom';
   import React from 'react';
   import ReactAntCheckbox from '@feizheng/react-ant-checkbox';
   import noop from '@feizheng/noop';
-  import '@feizheng/next-ant-fields-value';
   import './assets/style.scss';
 
   class App extends React.Component {
     state = {
-      fieldsValue: nx.antFieldsValue({
+      initialValue: {
         username: 'fei',
         password: 'test',
         chk: false,
         text: 'etst...'
-      }),
+      },
       items: [
         {
           label: 'username',
-          field: 'username'
+          field: 'username',
+          rules: [{ required: true, message: '用户名为必选' }]
         },
         {
           label: 'password',
-          field: 'password'
+          field: 'password',
+          rules: [{ required: true, message: '密码为必选' }]
         },
         {
           label: 'test-checkbox',
@@ -78,24 +89,37 @@ npm update @feizheng/react-ant-form
     };
 
     handleSubmit = (e) => {
-      console.log(e);
-      return {
-        then: nx.noop
-      };
+      return new Promise((resolve, reject) => {
+        console.log('submit:::', e);
+        resolve();
+      });
+    };
+
+    handleSubmitSuccess = (e) => {
+      console.log('resolved/success!');
+    };
+
+    handleSubmitFailed = (e) => {
+      console.log('rejected/failed!');
     };
 
     render() {
       return (
         <div className="app-container">
           <ReactAntForm
-            fieldsValue={this.state.fieldsValue}
-            onSubmit={this.handleSubmit}
             items={this.state.items}
+            initialValue={this.state.initialValue}
+            onSubmit={this.handleSubmit}
+            onSubmitSuccess={this.handleSubmitSuccess}
+            onSubmitFailed={this.handleSubmitFailed}
             submitProps={{
               type: 'primary',
               htmlType: 'submit',
               className: 'wp-10',
               children: '保存'
+            }}
+            resetProps={{
+              children: '取消'
             }}
           />
         </div>
@@ -108,4 +132,20 @@ npm update @feizheng/react-ant-form
   ```
 
 ## documentation
-- https://afeiship.github.io/react-ant-form/
+- https://afeiship.github.io/react-ant-form-schema/
+
+
+## license
+Code released under [the MIT license](https://github.com/afeiship/react-ant-form-schema/blob/master/LICENSE.txt).
+
+[version-image]: https://img.shields.io/npm/v/@feizheng/react-ant-form-schema
+[version-url]: https://npmjs.org/package/@feizheng/react-ant-form-schema
+
+[license-image]: https://img.shields.io/npm/l/@feizheng/react-ant-form-schema
+[license-url]: https://github.com/afeiship/react-ant-form-schema/blob/master/LICENSE.txt
+
+[size-image]: https://img.shields.io/bundlephobia/minzip/@feizheng/react-ant-form-schema
+[size-url]: https://github.com/afeiship/react-ant-form-schema/blob/master/dist/react-ant-form-schema.min.js
+
+[download-image]: https://img.shields.io/npm/dm/@feizheng/react-ant-form-schema
+[download-url]: https://www.npmjs.com/package/@feizheng/react-ant-form-schema

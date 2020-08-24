@@ -1,4 +1,4 @@
-import baseConfig from '.';
+import baseConfig from './base';
 import merge from 'webpack-merge';
 import {
   configs,
@@ -12,12 +12,12 @@ import {
 export default merge(baseConfig, {
   entry: inputs.build(),
   output: outputs.build({
-    library: 'ReactAntForm'
+    library: 'ReactAntFormSchema'
   }),
-  externals: externals.base({
-    '@feizheng/noop': '@feizheng/noop',
-    'deep-equal':'deep-equal',
-    'antd':'antd'
-  }),
-  plugins: [plugins.clean(), plugins.copyStyles()]
+  devtool: 'source-map',
+  externals: externals.node(),
+  plugins: [
+    plugins.clean(),
+    plugins.copyStyles()
+  ]
 });

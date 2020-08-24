@@ -1,2 +1,2 @@
-import ReactAntForm from './components';
-export default ReactAntForm;
+import ReactAntFormSchema from './components';
+export default ReactAntFormSchema;
