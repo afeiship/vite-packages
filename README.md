@@ -37,6 +37,15 @@ npm update @feizheng/react-ant-form-schema
 | actions          | element | false    | -                                                         | The actions for form.                                 |
 
 
+## item options
+| Name      | Type    | Description                              |
+| --------- | ------- | ---------------------------------------- |
+| label     | string  | The display label.                       |
+| filed     | string  | The form field string(name).             |
+| component | element | The form field component.                |
+| props     | object  | The form field props.                    |
+| options   | object  | The get decorator options(like `rules`). |
+
 ## usage
 1. import css
   ```scss
