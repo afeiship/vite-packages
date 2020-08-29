@@ -5,7 +5,7 @@
     "lerna": "^3.22.1"
   },
   "scripts": {
-    "lerna:publish": "lerna publish",
+    "lerna:publish": "lerna publish --skip-version",
     "v3:info": "cd packages/v3 && npm info",
     "v4:info": "cd packages/v4 && npm info"
   }

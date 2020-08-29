@@ -1,13 +1,11 @@
-import baseConfig from './base';
-import merge from 'webpack-merge';
 import {
-  configs,
-  inputs,
+  externals, inputs,
   outputs,
-  loaders,
-  plugins,
-  externals
+
+  plugins
 } from '@feizheng/webpack-lib-kits';
+import merge from 'webpack-merge';
+import baseConfig from './base';
 
 export default merge(baseConfig, {
   entry: inputs.build(),
@@ -18,6 +16,7 @@ export default merge(baseConfig, {
   externals: externals.node(),
   plugins: [
     plugins.clean(),
+    plugins.banner(),
     plugins.copyStyles()
   ]
 });
