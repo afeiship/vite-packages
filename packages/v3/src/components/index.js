@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import ReactList from '@feizheng/react-list';
 import noop from '@feizheng/noop';
-import objectAssign from 'object-assign';
-import deepEqual from 'deep-equal';
-import { Form, Button, Input } from 'antd';
+import ReactList from '@feizheng/react-list';
+import { Button, Form, Input } from 'antd';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 const CLASS_NAME = 'react-ant-form-schema3';
 const submitProps = { type: 'primary', htmlType: 'submit', children: 'Save' };
@@ -120,15 +117,6 @@ export default Form.create()(
       onLoad({
         target: form
       });
-    }
-
-    shouldComponentUpdate(inProps) {
-      const { setFields } = this.props.form;
-      const { fieldsValue } = inProps;
-      if (!deepEqual(fieldsValue, this.props.fieldsValue)) {
-        setFields(fieldsValue);
-      }
-      return true;
     }
 
     handleSubmit = (inEvent) => {
