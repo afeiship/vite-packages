@@ -30,6 +30,10 @@ export default Form.create()(
        */
       className: PropTypes.string,
       /**
+       * Action(submit) filed class name.
+       */
+      actionsClassName: PropTypes.string,
+      /**
        * Default fileds value object.
        */
       initialValue: PropTypes.object,
@@ -97,12 +101,18 @@ export default Form.create()(
     }
 
     get actionView() {
-      const { tailLayout, submit, reset, children } = this.props;
+      const {
+        actionsClassName,
+        tailLayout,
+        submit,
+        reset,
+        children
+      } = this.props;
       if (!submit && !reset) return children || null;
       return (
         <Form.Item
           {...tailLayout}
-          className={`${CLASS_NAME}__actions`}
+          className={`${actionsClassName} ${CLASS_NAME}__actions`}
           colon={false}>
           <Button {...submit} />
           {reset && <Button onClick={this.handleReset} {...reset} />}

@@ -20,6 +20,7 @@ npm update @feizheng/react-ant-form-schema3
 | Name             | Type   | Required | Default                                                   | Description                                           |
 | ---------------- | ------ | -------- | --------------------------------------------------------- | ----------------------------------------------------- |
 | className        | string | false    | -                                                         | The extended className for component.                 |
+| actionsClassName | string | false    | -                                                         | Action(submit) filed class name.                      |
 | initialValue     | object | false    | {}                                                        | Default fileds value object.                          |
 | items            | array  | false    | []                                                        | Form schema.                                          |
 | template         | func   | false    | -                                                         | The form field template.                              |
