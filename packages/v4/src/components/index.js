@@ -187,7 +187,7 @@ export default class ReactAntForm extends Component {
         ref={(form) => (this.form = form)}
         data-component={CLASS_NAME}
         className={classNames(CLASS_NAME, className)}
-        onSubmit={this.handleSubmit}
+        onFinish={this.handleSubmit}
         {...props}>
         {this.formView}
         {this.actionView}
