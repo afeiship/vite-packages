@@ -123,6 +123,14 @@ export default class ReactAntForm extends Component {
     });
   }
 
+  shouldComponentUpdate(inProps) {
+    const { initialValue } = inProps;
+    if (initialValue !== this.props.initialValue) {
+      this.form.setFieldsValue(initialValue);
+    }
+    return true;
+  }
+
   handleSubmit = (inEvent) => {
     const { onSubmit } = this.props;
     onSubmit(inEvent);
