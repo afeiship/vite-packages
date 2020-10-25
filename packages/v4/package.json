@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-ant-form-schema4",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React basic ant form builder.",
   "main": "dist/index.js",
   "scripts": {

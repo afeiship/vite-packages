@@ -123,13 +123,9 @@ export default class ReactAntForm extends Component {
     });
   }
 
-  handleSubmit = () => {
+  handleSubmit = (inEvent) => {
     const { onSubmit } = this.props;
-    this.form.validateFields((err, values) => {
-      if (!err) {
-        onSubmit(values);
-      }
-    });
+    onSubmit(inEvent);
   };
 
   handleReset = () => {
