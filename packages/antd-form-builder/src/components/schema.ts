@@ -9,14 +9,16 @@ export const processSchema = (
   }
 ): Meta => {
   const schema = inSetting.schema;
-  const fields = inMeta.fields as any[] || [];
-  fields.forEach((field: any) => {
+  const fields = (inMeta.fields as any[]) || [];
+
+  for (let i = 0; i < fields.length; i++) {
+    const field = fields[i];
     const key = field.key;
     const value = schema[key];
-    if (isDefined(value)) {
-      field.label ||= value[0];
-      field.widget ||= value[1];
-    }
-  });
+    if (!isDefined(value)) continue;
+
+    field.label ||= value[0];
+    field.widget ||= value[1];
+  }
   return inMeta;
 };

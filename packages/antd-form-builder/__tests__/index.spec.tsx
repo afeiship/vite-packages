@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
-import AntdFormBuilder from '../src/main';
+import AntdFormBuilder, { MetaProps } from '../src/main';
 import { Button, Form } from 'antd';
+// import { act } from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
@@ -21,11 +22,11 @@ describe('01/basic props', () => {
   test('001-01 simple schema', () => {
     const App = () => {
       const [form] = Form.useForm();
-      const getMeta = () => {
+      const getMeta = (): MetaProps => {
         return {
           fields: [
             { key: 'username', label: 'User Name' },
-            { key: 'password', label: 'Password' }
+            { key: 'password', label: 'Password', widget: 'password' }
           ]
         };
       };
@@ -39,8 +40,10 @@ describe('01/basic props', () => {
         </AntdFormBuilder>
       );
     };
-    render(<App />);
-    console.log(document.body.innerHTML);
-    expect(document.body.innerHTML.includes('Log in')).toBeTruthy();
+
+    // render App use jest
+    const wrapper = render(<App />);
+    // debug html
+    console.log(wrapper.container.innerHTML);
   });
 });
