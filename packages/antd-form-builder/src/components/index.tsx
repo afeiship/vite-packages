@@ -13,7 +13,7 @@ const isFunction = (fn: Processor) => typeof fn === 'function';
 
 export default (inProps: AntdFormBuilderProps) => {
   const { meta, children, form, processors, ...props } = inProps;
-  const [theMeta, setTheMeta] = React.useState({ ...DEFAULT_META });
+  const [processedMeta, setProcessedMeta] = React.useState({ ...DEFAULT_META });
   const [once, setOnce] = useState<boolean>(false);
   const [tick, setTick] = useState<number>(0);
   const forceUpdate = useCallback(() => {
@@ -38,12 +38,12 @@ export default (inProps: AntdFormBuilderProps) => {
   };
 
   useEffect(() => {
-    getComposite(meta()).then(setTheMeta);
+    getComposite(meta()).then(setProcessedMeta);
   }, [tick]);
 
   return (
     <Form form={form} onValuesChange={forceUpdate} {...props}>
-      <FormBuilder meta={theMeta} form={form} />
+      <FormBuilder meta={processedMeta} form={form} />
       {children}
     </Form>
   );
