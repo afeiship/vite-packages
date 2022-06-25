@@ -4,16 +4,16 @@
 ## installation
 ```shell
 # antd-v3
-npm install -S @feizheng/react-ant-form-schema3
+npm install -S @jswork/react-ant-form-schema3
 
 # antd-v4
-npm install -S @feizheng/react-ant-form-schema4
+npm install -S @jswork/react-ant-form-schema4
 ```
 
 ## update
 ```shell
-npm update @feizheng/react-ant-form-schema3
-npm update @feizheng/react-ant-form-schema4
+npm update @jswork/react-ant-form-schema3
+npm update @jswork/react-ant-form-schema4
 ```
 
 ## usage

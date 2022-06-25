@@ -1,12 +1,23 @@
 {
   "name": "root",
   "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "devDependencies": {
     "lerna": "^3.22.1"
   },
   "scripts": {
+    "lerna:clean": "lerna clean",
+    "lerna:list": "lerna list",
+    "lerna:bootstrap": "lerna bootstrap",
     "lerna:publish": "lerna publish --no-git-tag-version",
     "v3:info": "cd packages/v3 && npm info",
     "v4:info": "cd packages/v4 && npm info"
+  },
+  "dependencies": {
+    "prettier": "^2.7.1"
   }
 }
