@@ -4,14 +4,12 @@ import FormBuilder, { Meta } from 'antd-form-builder';
 import compose from '@jswork/next-promise-compose';
 import { MetaProps, AntdFormBuilderProps, Processor, MetaInOut, StandardProcessor } from './types';
 import { processSchema } from './schema';
+import { isFunction } from './utility';
 
-const FUNC = 'function';
 const DEFAULT_META: MetaProps = {
   initialValues: {},
   fields: []
 };
-
-const isFunction = (fn: Processor) => typeof fn === FUNC;
 
 export default (inProps: AntdFormBuilderProps) => {
   const { meta, setting, children, form, processors, ...props } = inProps;

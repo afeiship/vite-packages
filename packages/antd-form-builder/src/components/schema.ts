@@ -1,7 +1,6 @@
 import { Meta } from 'antd-form-builder';
 import { MetaProps } from './types';
-
-const isDefined = (value) => typeof value !== 'undefined';
+import { isDefined } from './utility';
 
 export const processSchema = (inMeta: MetaProps, inSetting: any): Meta => {
   const schema = inSetting.schema;
