@@ -22,7 +22,7 @@ export default (inProps: AntdFormBuilderProps) => {
 
   const getComposite = (inMeta: Meta) => {
     const cbs: MetaInOut[] = [];
-    if (processors?.length === 0) return inMeta;
+    if (!processors?.length) return Promise.resolve(inMeta);
     processors!.forEach((processor: Processor) => {
       const isFunc = isFunction(processor);
       const normalized = isFunc ? { fn: processor as MetaInOut } : (processor as StandardProcessor);
