@@ -1,18 +1,14 @@
 import { Meta } from 'antd-form-builder';
 import { FormInstance, FormProps } from 'antd';
 
+export type MetaInOut = (meta: Meta) => Meta;
+export type StandardProcessor = { fn?: MetaInOut; once?: boolean };
+export type Processor = StandardProcessor | MetaInOut;
+
 export interface MetaProps extends Meta {}
 
 export interface AntdFormBuilderProps extends FormProps {
   form: FormInstance;
   meta: () => MetaProps;
-  processors: any;
-  handleFinish?: any;
-  children?: any;
+  processors: Processor[];
 }
-
-export type MetaInOut = (meta: Meta) => Meta;
-export type Processor = {
-  fn?: MetaInOut;
-  once?: boolean;
-};

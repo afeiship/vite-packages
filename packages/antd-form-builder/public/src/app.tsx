@@ -15,7 +15,6 @@ export default () => {
     {
       fn: (inMeta: any) => {
         const fields = inMeta.fields;
-        console.log('fields:', fields);
         const value = form.getFieldValue('checkbox');
         if (value) fields.splice(3, 1);
         inMeta.fields = fields;
@@ -94,8 +93,8 @@ export default () => {
   return (
     <Container>
       <AntdFormBuilderComponent
-        meta={getMeta}
         processors={processors}
+        meta={getMeta}
         form={form}
         onFinish={(e) => {
           console.log('onFinish:', e);
