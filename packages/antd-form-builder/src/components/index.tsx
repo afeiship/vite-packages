@@ -3,16 +3,18 @@ import { Form } from 'antd';
 import FormBuilder, { Meta } from 'antd-form-builder';
 import compose from '@jswork/next-promise-compose';
 import { MetaProps, AntdFormBuilderProps, Processor, MetaInOut, StandardProcessor } from './types';
+import { processSchema } from './schema';
 
+const FUNC = 'function';
 const DEFAULT_META: MetaProps = {
   initialValues: {},
   fields: []
 };
 
-const isFunction = (fn: Processor) => typeof fn === 'function';
+const isFunction = (fn: Processor) => typeof fn === FUNC;
 
 export default (inProps: AntdFormBuilderProps) => {
-  const { meta, children, form, processors, ...props } = inProps;
+  const { meta, setting, children, form, processors, ...props } = inProps;
   const [processedMeta, setProcessedMeta] = React.useState({ ...DEFAULT_META });
   const [once, setOnce] = useState<boolean>(false);
   const [tick, setTick] = useState<number>(0);
@@ -22,7 +24,8 @@ export default (inProps: AntdFormBuilderProps) => {
 
   const getComposite = (inMeta: Meta) => {
     const cbs: MetaInOut[] = [];
-    processors.forEach((processor: Processor) => {
+    if (processors?.length === 0) return inMeta;
+    processors!.forEach((processor: Processor) => {
       const isFunc = isFunction(processor);
       const normalized = isFunc ? { fn: processor as MetaInOut } : (processor as StandardProcessor);
       if (once) {
@@ -38,7 +41,8 @@ export default (inProps: AntdFormBuilderProps) => {
   };
 
   useEffect(() => {
-    getComposite(meta()).then(setProcessedMeta);
+    const targetMeta = processSchema(meta(), setting);
+    getComposite(targetMeta).then(setProcessedMeta);
   }, [tick]);
 
   return (

@@ -2,12 +2,20 @@ import * as React from 'react';
 import AntdFormBuilderComponent from '../../src/main';
 import styled from 'styled-components';
 import { Form, Rate, Button } from 'antd';
+import { MetaProps, Setting } from '../../src/components/types';
 // import FormBuilder from 'antd-form-builder';
 
 const Container = styled.div`
   width: 80%;
   margin: 30px auto 0;
 `;
+
+const defaultSettings: Setting = {
+  schema: {
+    username: ['User Name', 'input'],
+    password: ['Password', 'password']
+  }
+};
 
 export default () => {
   const [form] = Form.useForm();
@@ -41,51 +49,17 @@ export default () => {
       }
     }
   ];
-  const getMeta = () => {
+  const getMeta = (): MetaProps => {
     return {
       initialValues: {
         username: 'default-username',
         password: 's1zmD2MEkl92CdVIsUhMUgCK1u0UJzxB'
       },
       fields: [
-        { key: 'username', label: 'User Name' },
-        {
-          key: 'password',
-          label: 'Password',
-          widget: 'password',
-          help: 'Change columns to show layout change'
-        },
-        {
-          key: 'checkbox',
-          label: 'Checkbox',
-          widget: 'checkbox',
-          once: true,
-          callback: (newMeta: any) => {
-            return new Promise((resolve) => {
-              setTimeout(() => {
-                const fields = newMeta.fields;
-                fields.forEach((field: any) => {
-                  if (field.key === 'password') {
-                    field.disabled = true;
-                  }
-                });
-                resolve(newMeta);
-              }, 1000);
-            });
-          }
-        },
-        {
-          key: 'rating',
-          label: 'Rating',
-          widget: Rate,
-          callback: (newMeta: any) => {
-            const fields = newMeta.fields;
-            const value = form.getFieldValue('checkbox');
-            if (value) fields.splice(3, 1);
-            newMeta.fields = fields;
-            return newMeta;
-          }
-        }
+        { key: 'username' },
+        { key: 'password' },
+        { key: 'checkbox', label: 'Checkbox', widget: 'checkbox' },
+        { key: 'rating', label: 'Rating', widget: Rate }
       ]
     };
   };
@@ -93,6 +67,7 @@ export default () => {
   return (
     <Container>
       <AntdFormBuilderComponent
+        setting={defaultSettings}
         processors={processors}
         meta={getMeta}
         form={form}
