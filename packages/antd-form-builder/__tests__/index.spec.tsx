@@ -3,8 +3,9 @@ import AntdFormBuilder, { MetaProps } from '../src/main';
 import { Button, Form } from 'antd';
 import { render, waitFor, getByText } from '@testing-library/react';
 import { Setting } from '../dist/components/types';
+import { act } from 'react-dom/test-utils';
 
-describe('01/basic props', () => {
+describe('01/basic feature unit testing', () => {
   test('01/simple schema', async () => {
     const App = () => {
       const [form] = Form.useForm();
@@ -117,7 +118,7 @@ describe('01/basic props', () => {
       expect(usernameInput.disabled).toBe(true);
     });
   });
-  test.only('04/schema has async processor', async () => {
+  test('04/schema has async processor', async () => {
     const App = () => {
       const [form] = Form.useForm();
       const processors: any[] = [
@@ -157,6 +158,63 @@ describe('01/basic props', () => {
         await new Promise((r) => setTimeout(r, 2000));
         const username = getByText(wrapper.container, 'New Label form promise');
         expect(username.innerHTML).toBe('New Label form promise');
+      },
+      { timeout: 10 * 1000 }
+    );
+  });
+
+  test('05/schema has with checkbox and interactive to change meta fields', async () => {
+    const App = () => {
+      const [form] = Form.useForm();
+      const processors = [
+        (args: any) => {
+          const { meta } = args;
+          if (form.getFieldValue('checkbox')) {
+            meta.fields[0].label = 'username:Checked Label';
+          }
+          return args;
+        }
+      ];
+      const getMeta = (): MetaProps => {
+        return {
+          fields: [
+            { key: 'username', label: 'User Name' },
+            { key: 'password', label: 'Password', widget: 'password' },
+            {
+              key: 'checkbox',
+              label: 'Checkbox',
+              widget: 'checkbox',
+              widgetProps: { 'data-testid': 'chk1' }
+            }
+          ]
+        };
+      };
+      return (
+        <AntdFormBuilder meta={getMeta} form={form} processors={processors}>
+          <Form.Item wrapperCol={{ span: 16, offset: 8 }}>
+            <Button type="primary" htmlType="submit">
+              Log in
+            </Button>
+          </Form.Item>
+        </AntdFormBuilder>
+      );
+    };
+
+    const wrapper = render(<App />);
+    // wait for 3s
+
+    await waitFor(
+      async () => {
+        const promise = Promise.resolve();
+
+        const password = getByText(wrapper.container, 'Password');
+        const checkbox = getByText(wrapper.container, 'Checkbox');
+        const loginBtn = getByText(wrapper.container, 'Log in');
+        expect(password.innerHTML).toBe('Password');
+        expect(checkbox.innerHTML).toBe('Checkbox');
+        expect(loginBtn.innerHTML).toBe('Log in');
+        // todo: check checkbox is checked or not
+        await act(() => promise);
       },
       { timeout: 10 * 1000 }
     );

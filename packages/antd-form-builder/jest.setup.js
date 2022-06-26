@@ -1,3 +1,6 @@
+
+jest.setTimeout(50000);
+
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation((query) => ({
