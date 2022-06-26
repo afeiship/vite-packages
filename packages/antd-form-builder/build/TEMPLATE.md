@@ -1,5 +1,5 @@
-# boilerplate-react-ts-component
-> boilerplate-react-ts-component-description
+# antd-form-builder
+> A wrapper for antd-form-builder.
 
 [![version][version-image]][version-url]
 [![license][license-image]][license-url]
@@ -8,19 +8,19 @@
 
 ## installation
 ```shell
-npm install -S @boilerplate-scope/boilerplate-react-ts-component
+npm install -S @jswork/antd-form-builder
 ```
 
 ## usage
 1. import css
   ```scss
-  @import "~@boilerplate-scope/boilerplate-react-ts-component/dist/style.css";
+  @import "~@jswork/antd-form-builder/dist/style.css";
 
   // or use sass
-  @import "~@boilerplate-scope/boilerplate-react-ts-component/dist/style.scss";
+  @import "~@jswork/antd-form-builder/dist/style.scss";
 
   // customize your styles:
-  $boilerplate-react-ts-component-options: ()
+  $antd-form-builder-options: ()
   ```
 2. import js
   ```js
@@ -28,19 +28,19 @@ __GENERATE_DAPP__
   ```
 
 ## preview
-- https://afeiship.github.io/boilerplate-react-ts-component/
+- https://afeiship.github.io/antd-form-builder/
 
 ## license
-Code released under [the MIT license](https://github.com/afeiship/boilerplate-react-ts-component/blob/master/LICENSE.txt).
+Code released under [the MIT license](https://github.com/afeiship/antd-form-builder/blob/master/LICENSE.txt).
 
-[version-image]: https://img.shields.io/npm/v/@boilerplate-scope/boilerplate-react-ts-component
-[version-url]: https://npmjs.org/package/@boilerplate-scope/boilerplate-react-ts-component
+[version-image]: https://img.shields.io/npm/v/@jswork/antd-form-builder
+[version-url]: https://npmjs.org/package/@jswork/antd-form-builder
 
-[license-image]: https://img.shields.io/npm/l/@boilerplate-scope/boilerplate-react-ts-component
-[license-url]: https://github.com/afeiship/boilerplate-react-ts-component/blob/master/LICENSE.txt
+[license-image]: https://img.shields.io/npm/l/@jswork/antd-form-builder
+[license-url]: https://github.com/afeiship/antd-form-builder/blob/master/LICENSE.txt
 
-[size-image]: https://img.shields.io/bundlephobia/minzip/@boilerplate-scope/boilerplate-react-ts-component
-[size-url]: https://github.com/afeiship/boilerplate-react-ts-component/blob/master/dist/boilerplate-react-ts-component.min.js
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/antd-form-builder
+[size-url]: https://github.com/afeiship/antd-form-builder/blob/master/dist/antd-form-builder.min.js
 
-[download-image]: https://img.shields.io/npm/dm/@boilerplate-scope/boilerplate-react-ts-component
-[download-url]: https://www.npmjs.com/package/@boilerplate-scope/boilerplate-react-ts-component
+[download-image]: https://img.shields.io/npm/dm/@jswork/antd-form-builder
+[download-url]: https://www.npmjs.com/package/@jswork/antd-form-builder
