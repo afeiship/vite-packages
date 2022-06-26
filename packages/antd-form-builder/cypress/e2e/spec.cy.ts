@@ -15,4 +15,9 @@ describe('empty spec', () => {
     cy.get('[for="checkbox"]').click();
     cy.get('[for="rating"]').should('exist');
   });
+
+  it('02/password is disabled', () => {
+    cy.visit('http://localhost:3000');
+    cy.get('#password').should('have.attr', 'disabled');
+  })
 });
