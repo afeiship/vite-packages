@@ -27,5 +27,13 @@ export default [
       }
     });
     return inArgs;
+  },
+  (inArgs) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        inArgs.meta.fields[0].label = 'New Label form promise';
+        resolve(inArgs);
+      }, 100);
+    })
   }
 ];
