@@ -1,6 +1,8 @@
 describe('empty spec', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
   it('01/toggle checkbox should change rating state', () => {
-    cy.visit('http://localhost:3000');
     // cy.get('[for="checkbox"]').click()
     // rating exists
     cy.get('[for="rating"]').should('exist');
@@ -17,7 +19,10 @@ describe('empty spec', () => {
   });
 
   it('02/password is disabled', () => {
-    cy.visit('http://localhost:3000');
     cy.get('#password').should('have.attr', 'disabled');
-  })
+  });
+
+  it('03/username is New Label', () => {
+    cy.get('[for="username"]').should('have.text', 'New Label form promise');
+  });
 });
