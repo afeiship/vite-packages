@@ -162,7 +162,6 @@ describe('01/basic feature unit testing', () => {
       { timeout: 10 * 1000 }
     );
   });
-
   test('05/schema has with checkbox and interactive to change meta fields', async () => {
     const App = () => {
       const [form] = Form.useForm();
