@@ -3,7 +3,6 @@ import AntdFormBuilderComponent from '../../src/main';
 import styled from 'styled-components';
 import { Form, Rate, Button } from 'antd';
 import { MetaProps, Setting } from '../../src/components/types';
-// import FormBuilder from 'antd-form-builder';
 
 const Container = styled.div`
   width: 80%;
@@ -21,31 +20,32 @@ export default () => {
   const [form] = Form.useForm();
   const processors = [
     {
-      fn: (inMeta: any) => {
-        const fields = inMeta.fields;
+      fn: (inArgs) => {
+        const meta = inArgs.meta;
+        const fields = meta.fields;
         const value = form.getFieldValue('checkbox');
         if (value) fields.splice(3, 1);
-        inMeta.fields = fields;
-        return inMeta;
+        meta.fields = fields;
+        return inArgs;
       }
     },
     {
       once: true,
-      fn: (inMeta: any) => {
+      fn: (inArgs) => {
         setTimeout(() => {
           form.setFieldsValue({ rating: 1 });
         }, 1000);
-        return inMeta;
+        return inArgs;
       }
     },
     {
-      fn: (inMeta: any) => {
-        inMeta.fields.forEach((field: any) => {
+      fn: (inArgs) => {
+        inArgs.meta.fields.forEach((field: any) => {
           if (field.key === 'password') {
             field.disabled = true;
           }
         });
-        return inMeta;
+        return inArgs;
       }
     }
   ];

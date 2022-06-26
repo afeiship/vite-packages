@@ -2,7 +2,14 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Form } from 'antd';
 import FormBuilder, { Meta } from 'antd-form-builder';
 import compose from '@jswork/next-promise-compose';
-import { MetaProps, AntdFormBuilderProps, Processor, MetaInOut, StandardProcessor } from './types';
+import {
+  MetaProps,
+  AntdFormBuilderProps,
+  Processor,
+  MetaInOut,
+  StandardProcessor,
+  CompositeInput
+} from './types';
 import { processSchema } from './schema';
 import { isFunction } from './utility';
 
@@ -35,12 +42,16 @@ export default (inProps: AntdFormBuilderProps) => {
       if (normalized.fn) cbs.push(normalized.fn);
     });
     setOnce(true);
-    return compose(...cbs)(inMeta);
+    return compose(...cbs)({ meta: inMeta, form, forceUpdate });
   };
 
   useEffect(() => {
     const targetMeta = processSchema(meta(), setting);
-    getComposite(targetMeta).then(setProcessedMeta);
+    try {
+      getComposite(targetMeta).then((res: CompositeInput) => setProcessedMeta(res.meta));
+    } catch (e) {
+      setProcessedMeta(targetMeta);
+    }
   }, [tick]);
 
   return (
