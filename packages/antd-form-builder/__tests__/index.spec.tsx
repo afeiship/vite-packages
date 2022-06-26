@@ -1,25 +1,10 @@
 import * as React from 'react';
 import AntdFormBuilder, { MetaProps } from '../src/main';
 import { Button, Form } from 'antd';
-// import { act } from 'react-test-renderer';
-import { render } from '@testing-library/react';
-
-Object.defineProperty(window, 'matchMedia', {
-  writable: true,
-  value: jest.fn().mockImplementation((query) => ({
-    matches: false,
-    media: query,
-    onchange: null,
-    addListener: jest.fn(), // Deprecated
-    removeListener: jest.fn(), // Deprecated
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn()
-  }))
-});
+import { render, waitFor, getByText } from '@testing-library/react';
 
 describe('01/basic props', () => {
-  test('001-01 simple schema', () => {
+  test('001-01 simple schema', async () => {
     const App = () => {
       const [form] = Form.useForm();
       const getMeta = (): MetaProps => {
@@ -41,9 +26,16 @@ describe('01/basic props', () => {
       );
     };
 
-    // render App use jest
     const wrapper = render(<App />);
-    // debug html
-    console.log(wrapper.container.innerHTML);
+    // wait for 3s
+
+    await waitFor(() => {
+      const username = getByText(wrapper.container, 'User Name');
+      const password = getByText(wrapper.container, 'Password');
+      const loginBtn = getByText(wrapper.container, 'Log in');
+      expect(username.innerHTML).toBe('User Name');
+      expect(password.innerHTML).toBe('Password');
+      expect(loginBtn.innerHTML).toBe('Log in');
+    });
   });
 });

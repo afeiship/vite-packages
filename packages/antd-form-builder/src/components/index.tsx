@@ -43,9 +43,10 @@ const AntdFormBuilder = (inProps: AntdFormBuilderProps) => {
 
   useEffect(() => {
     const targetMeta = processSchema(meta(), setting);
+    if (!processors?.length) return setProcessedMeta(targetMeta);
     try {
       getComposite(targetMeta).then((res: CompositeInput) => setProcessedMeta(res.meta));
-    } catch (e) {
+    } catch (_) {
       setProcessedMeta(targetMeta);
     }
   }, [tick]);
