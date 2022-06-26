@@ -33,12 +33,8 @@ const AntdFormBuilder = (inProps: AntdFormBuilderProps) => {
     processors!.forEach((processor: Processor) => {
       const isFunc = isFunction(processor);
       const normalized = isFunc ? { fn: processor as MetaInOut } : (processor as StandardProcessor);
-      if (once) {
-        if (normalized.once) {
-          delete normalized.fn;
-          delete normalized.once;
-        }
-      }
+      const hasOnce = once && normalized.once;
+      if (hasOnce) ['fn', 'once'].forEach((key) => delete normalized[key]);
       if (normalized.fn) cbs.push(normalized.fn);
     });
     setOnce(true);
