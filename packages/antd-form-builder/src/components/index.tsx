@@ -61,7 +61,8 @@ const AntdFormBuilder = (inProps: AntdFormBuilderProps) => {
 
 // default props
 AntdFormBuilder.defaultProps = {
-  setting: { schema: {} }
+  setting: { schema: {} },
+  processors: []
 };
 
 export default AntdFormBuilder;
