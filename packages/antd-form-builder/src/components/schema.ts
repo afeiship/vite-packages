@@ -2,12 +2,7 @@ import { Meta } from 'antd-form-builder';
 import { MetaProps } from './types';
 import { isDefined } from './utility';
 
-export const processSchema = (
-  inMeta: MetaProps,
-  inSetting: any = {
-    schema: {}
-  }
-): Meta => {
+export const processSchema = (inMeta: MetaProps, inSetting): Meta => {
   const schema = inSetting.schema;
   const fields = (inMeta.fields as any[]) || [];
 

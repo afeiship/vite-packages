@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Form } from 'antd';
 import FormBuilder, { Meta } from 'antd-form-builder';
 import compose from '@jswork/next-promise-compose';
+import { processSchema } from './schema';
+import { isFunction } from './utility';
 import {
   MetaProps,
   AntdFormBuilderProps,
@@ -10,8 +12,6 @@ import {
   StandardProcessor,
   CompositeInput
 } from './types';
-import { processSchema } from './schema';
-import { isFunction } from './utility';
 
 const DEFAULT_META: MetaProps = {
   initialValues: {},
