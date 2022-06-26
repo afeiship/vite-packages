@@ -18,7 +18,7 @@ const DEFAULT_META: MetaProps = {
   fields: []
 };
 
-export default (inProps: AntdFormBuilderProps) => {
+const AntdFormBuilder = (inProps: AntdFormBuilderProps) => {
   const { meta, setting, children, form, processors, ...props } = inProps;
   const [processedMeta, setProcessedMeta] = React.useState({ ...DEFAULT_META });
   const [once, setOnce] = useState<boolean>(false);
@@ -61,3 +61,10 @@ export default (inProps: AntdFormBuilderProps) => {
     </Form>
   );
 };
+
+// default props
+AntdFormBuilder.defaultProps = {
+  setting: { schema: {} }
+};
+
+export default AntdFormBuilder;
