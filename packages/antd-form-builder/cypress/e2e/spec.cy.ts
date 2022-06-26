@@ -2,6 +2,7 @@ describe('empty spec', () => {
   beforeEach(() => {
     cy.visit('/');
   });
+
   it('01/toggle checkbox should change rating state', () => {
     // cy.get('[for="checkbox"]').click()
     // rating exists

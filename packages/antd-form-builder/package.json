@@ -18,8 +18,8 @@
     "docs:serve": "vite preview",
     "test": "jest",
     "test:watch": "jest --watch",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "cy:interactive": "cypress open",
+    "cy:headless": "cypress run",
     "pages": "github-cli -p",
     "release": "release-it"
   },
