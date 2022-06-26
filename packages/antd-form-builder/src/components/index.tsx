@@ -28,17 +28,17 @@ const AntdFormBuilder = (inProps: AntdFormBuilderProps) => {
   }, []);
 
   const getComposite = (inMeta: Meta) => {
-    const cbs: MetaInOut[] = [];
+    const fns: MetaInOut[] = [];
     if (!processors?.length) return Promise.resolve(inMeta);
     processors!.forEach((processor: Processor) => {
       const isFunc = isFunction(processor);
       const normalized = isFunc ? { fn: processor as MetaInOut } : (processor as StandardProcessor);
       const hasOnce = once && normalized.once;
       if (hasOnce) ['fn', 'once'].forEach((key) => delete normalized[key]);
-      if (normalized.fn) cbs.push(normalized.fn);
+      if (normalized.fn) fns.push(normalized.fn);
     });
     setOnce(true);
-    return compose(...cbs)({ meta: inMeta, form, forceUpdate });
+    return compose(...fns)({ meta: inMeta, form, forceUpdate });
   };
 
   useEffect(() => {
