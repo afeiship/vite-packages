@@ -12,17 +12,7 @@ npm install -S @jswork/antd-form-builder
 ```
 
 ## usage
-1. import css
-  ```scss
-  @import "~@jswork/antd-form-builder/dist/style.css";
-
-  // or use sass
-  @import "~@jswork/antd-form-builder/dist/style.scss";
-
-  // customize your styles:
-  $antd-form-builder-options: ()
-  ```
-2. import js
+import js
   ```js
 __GENERATE_DAPP__
   ```

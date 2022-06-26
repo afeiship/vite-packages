@@ -12,12 +12,13 @@ npm install -S @jswork/antd-form-builder
 ```
 
 ## usage
-1. import js
+import js
   ```js
   import * as React from 'react';
-  import AntdFormBuilderComponent, { MetaProps, Setting } from '@jswork/antd-form-builder';
+  import AntdFormBuilderComponent from '@jswork/antd-form-builder';
   import styled from 'styled-components';
   import { Form, Rate, Button } from 'antd';
+  import { MetaProps, Setting } from '../../src/components/types';
   import processors from './processors';
 
   const Container = styled.div`
