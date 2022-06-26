@@ -20,14 +20,12 @@ export default [
       return inArgs;
     }
   },
-  {
-    fn: (inArgs) => {
-      inArgs.meta.fields.forEach((field: any) => {
-        if (field.key === 'password') {
-          field.disabled = true;
-        }
-      });
-      return inArgs;
-    }
+  (inArgs) => {
+    inArgs.meta.fields.forEach((field: any) => {
+      if (field.key === 'password') {
+        field.disabled = true;
+      }
+    });
+    return inArgs;
   }
 ];
