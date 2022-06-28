@@ -8,7 +8,7 @@ export type StandardProcessor = { fn?: MetaInOut; once?: boolean };
 export type Processor = StandardProcessor | MetaInOut | Promise<MetaInOut>;
 export type Label = string | React.ReactElement<any>;
 export type Widget = string | React.ReactElement<any>;
-export type SchemaValue = [Label, Widget?];
+export type SchemaValue = [Label, Widget?, any?] | ((args) => [Label, Widget?, any?]);
 export type Setting = {
   schema: {
     [key: string]: SchemaValue;

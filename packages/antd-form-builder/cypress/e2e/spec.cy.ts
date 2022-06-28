@@ -26,4 +26,12 @@ describe('empty spec', () => {
   it('03/username is New Label', () => {
     cy.get('[for="username"]').should('have.text', 'New Label form promise');
   });
+
+  it('04/email has assign global to local', () => {
+    cy.get('[for="email"]').should('contain', 'from local');
+  });
+
+  it.only('05/email has placeholder props', () => {
+    cy.get('#email').should('have.attr', 'placeholder', 'Please input your email');
+  });
 });
