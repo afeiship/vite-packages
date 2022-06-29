@@ -1,10 +1,10 @@
 import { Meta } from 'antd-form-builder';
-import deepAssgin from '@jswork/next-deep-assign';
+import deepAssign from '@jswork/next-deep-assign';
 import { MetaProps } from './types';
 import { isDefined, isFunction } from './utility';
 
 export const processSchema = (inMeta: MetaProps, inSetting): Meta => {
-  const setting = deepAssgin({}, inSetting, inMeta.setting);
+  const setting = deepAssign({}, inSetting, inMeta.setting);
   const schema = setting.schema;
   const fields = (inMeta.fields as any[]) || [];
 
