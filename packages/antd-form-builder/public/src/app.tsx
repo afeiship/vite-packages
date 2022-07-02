@@ -29,9 +29,7 @@ export default () => {
       setting: {
         schema: {
           /* 此处针对一种，只想换 Label，但 email 的整个配置被 deepAssign 给替换掉的情况 */
-          email: (schemaField) => {
-            return ['Email - from local', schemaField[1], schemaField[2]];
-          }
+          email: ['Email - from local']
         }
       },
       fields: [

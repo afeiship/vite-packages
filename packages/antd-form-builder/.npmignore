@@ -24,6 +24,7 @@ docs
 jest.config.js
 .release-it.json
 tsconfig.json
+tsconfig.spec.json
 vite.config.ts
 cypress.config.js
 cypress
