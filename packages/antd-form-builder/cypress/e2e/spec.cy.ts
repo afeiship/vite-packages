@@ -31,7 +31,7 @@ describe('empty spec', () => {
     cy.get('[for="email"]').should('contain', 'from local');
   });
 
-  it.only('05/email has placeholder props', () => {
+  it('05/email has placeholder props', () => {
     cy.get('#email').should('have.attr', 'placeholder', 'Please input your email');
   });
 });
