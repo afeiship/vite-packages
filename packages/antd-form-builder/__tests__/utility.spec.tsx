@@ -52,7 +52,7 @@ describe('deepAssignSetting', () => {
     expect(result).toEqual(expectResult);
   });
 
-  it.only('03/merge settings 3rd args', () => {
+  it('03/merge settings 3rd args', () => {
     const globalSetting: Setting = {
       schema: {
         username: ['Username', 'input', { placeholder: 'Please input your username' }],

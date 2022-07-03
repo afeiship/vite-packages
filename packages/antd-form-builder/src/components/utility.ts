@@ -4,12 +4,12 @@ import nx from '@jswork/next';
 export const isFunction = (fn: Processor) => typeof fn === 'function';
 export const isDefined = (value) => typeof value !== 'undefined';
 
+// @private
+const setDefaults = (glb, local) => (local == null ? glb : local);
+
 export const deepAssignSetting = (inGlobalSetting: Setting, inLocalSetting: Setting): Setting => {
-  const globalSchema = inGlobalSetting.schema;
-  const localSchema = inLocalSetting.schema;
-  const setDefaults = (glb, local) => {
-    return local == null ? glb : local;
-  };
+  const globalSchema = nx.get(inGlobalSetting, 'schema', {});
+  const localSchema = nx.get(inLocalSetting, 'schema', {});
 
   nx.forIn(localSchema, (key: string, value: SchemaValue) => {
     // local value
