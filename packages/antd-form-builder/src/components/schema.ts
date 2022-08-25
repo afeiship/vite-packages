@@ -1,6 +1,6 @@
-import { Meta } from 'antd-form-builder';
-import { MetaProps, Setting } from './types';
-import { isDefined, deepAssignSetting } from './utility';
+import {Meta} from 'antd-form-builder';
+import {MetaProps, Setting} from './types';
+import {isDefined, deepAssignSetting} from './misc';
 
 export const processSchema = (inMeta: MetaProps, inSetting): Meta => {
   const setting = deepAssignSetting(inSetting, inMeta.setting as Setting);

@@ -1362,13 +1362,6 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@jswork/filter-react-props@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@jswork/filter-react-props/-/filter-react-props-1.0.2.tgz#a9041c983bb4c08985601e6ac7839003f15ddbde"
-  integrity sha512-4Ykv7PNiLQYWzU+8SVPlLWjlaB22AhGLety7JO7xJgajacby6InIo9rErxW/Bxbxpm81A4uX6Upecklgn3wVWw==
-  dependencies:
-    filter-react-props "0.0.4"
-
 "@jswork/next-array-replace@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@jswork/next-array-replace/-/next-array-replace-1.0.0.tgz#f06991681fb2a42190b9ce6f428d13bee6f2390f"
@@ -1379,10 +1372,10 @@
   resolved "https://registry.yarnpkg.com/@jswork/next-nice-comments/-/next-nice-comments-1.0.4.tgz#651755d184ffda9d00d5ae8859c73238586f06d9"
   integrity sha512-NL6Nhiq5DdssXndjIgERRLdI/v3pCkTry4AmwJpalSAYgMBGgMAoNz7/7TiPerizkajwLZTNHh64tJexxAjtFA==
 
-"@jswork/next-promise-compose@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@jswork/next-promise-compose/-/next-promise-compose-1.0.2.tgz#f5881599dcce3252be832b03530b008c7608ab88"
-  integrity sha512-c9P7N1051CU2xbD5Oll4LeQoW2T6ZL7v+TxFnI/sYAguXZV//5Ps0NCy+1pbdvuKK7THkFmeJXEhC5tq8gYxvQ==
+"@jswork/next-promise-compose@^1.0.4":
+  version "1.0.4"
+  resolved "https://mirrors.cloud.tencent.com/npm/@jswork%2fnext-promise-compose/-/next-promise-compose-1.0.4.tgz#0f7f32ba11d6bebcf45b76641f56f05b80d3b59e"
+  integrity sha512-QIgEnXq5cPkfgmqzzPrpVl/3tJy9x0D5H3svrkcf4nQSMfWUfbcYpy0Dz2qZ/XmYFKRTOXh26r5UZFZS3IK0FQ==
 
 "@jswork/next-replace-in-file@^1.0.0":
   version "1.0.0"
@@ -1391,17 +1384,22 @@
   dependencies:
     "@jswork/next-array-replace" "^1.0.0"
 
-"@jswork/next-rollup-banner@^1.0.2":
+"@jswork/next-rollup-banner@^1.0.4":
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@jswork/next-rollup-banner/-/next-rollup-banner-1.0.4.tgz#bf1bad51fae53e3c5532b362dc7a4cdf6f39ef6f"
+  resolved "https://mirrors.cloud.tencent.com/npm/@jswork%2fnext-rollup-banner/-/next-rollup-banner-1.0.4.tgz#bf1bad51fae53e3c5532b362dc7a4cdf6f39ef6f"
   integrity sha512-LN/2uoAoh2ntfqme6f0+XJj4gjPUKr0gqzvsSPl3Um5mGO6SjCHFjKkapFVoRBdtA4XX+p0nViZcOcQTqZ3xgg==
   dependencies:
     "@jswork/next-nice-comments" "^1.0.4"
 
-"@jswork/next@^1.0.2", "@jswork/next@^1.0.9":
+"@jswork/next@^1.0.2":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@jswork/next/-/next-1.0.9.tgz#8099e2699bd5f76a07dbcfcf2fee4a43298860f5"
   integrity sha512-bQxwIEj1zkJTW4yknbE2LZn0QsiBV2EsWMyMzhrfuL6OO18iG+AB9LRfrF3Mobk71nM7V2nc7XjvjVMRLh3FFQ==
+
+"@jswork/next@^1.1.4":
+  version "1.1.4"
+  resolved "https://mirrors.cloud.tencent.com/npm/@jswork%2fnext/-/next-1.1.4.tgz#dcbbf520fd5f28277499be836d3b706f1a2cddfd"
+  integrity sha512-ogIInadci6yOEoBHeS8eWVVoHfPHTWkTALJjSsDAjdDb5pjn60JXMiy7aC8cdNtbOHJSRUrGlxf8XS0jOvcl4w==
 
 "@jswork/noop@^1.0.0":
   version "1.0.0"
@@ -7557,11 +7555,6 @@ filter-obj@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmmirror.com/filter-obj/-/filter-obj-1.1.0.tgz#9b311112bc6c6127a16e016c6c5d7f19e0805c5b"
   integrity sha512-8rXg1ZnX7xzy2NGDVkBVaAy+lSlPNwad13BtgSlLuxfIslyt5Vg64U7tFcCt4WS1R0hvtnQybT/IyCkGZ3DpXQ==
-
-filter-react-props@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.npmmirror.com/filter-react-props/-/filter-react-props-0.0.4.tgz#d21af9ddc31a2fcc1b567684ec69b99c1bfd8344"
-  integrity sha512-f/DRNP1B6C16RxwqDUQf85ud22F4xVInqDGV9SqBbVEq2yY8GwFNiQZas5MHaYjiqcItuGYR5dEbGf9/e07rCQ==
 
 finalhandler@1.2.0:
   version "1.2.0"

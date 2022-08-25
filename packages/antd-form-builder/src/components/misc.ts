@@ -4,7 +4,6 @@ import nx from '@jswork/next';
 export const isFunction = (fn: Processor) => typeof fn === 'function';
 export const isDefined = (value) => typeof value !== 'undefined';
 
-// @private
 const setDefaults = (glb, local) => (local == null ? glb : local);
 
 export const deepAssignSetting = (inGlobalSetting: Setting, inLocalSetting: Setting): Setting => {

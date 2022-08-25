@@ -25,9 +25,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
-    "@jswork/next": "^1.0.9",
+    "@jswork/next": "^1.1.4",
     "@jswork/next-replace-in-file": "^1.0.0",
-    "@jswork/next-rollup-banner": "^1.0.2",
+    "@jswork/next-rollup-banner": "^1.0.4",
     "@jswork/react-markdown-props": "^1.0.1",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
@@ -75,8 +75,7 @@
     "vite-plugin-pwa": "^0.7.3"
   },
   "dependencies": {
-    "@jswork/filter-react-props": "^1.0.2",
-    "@jswork/next-promise-compose": "^1.0.2",
+    "@jswork/next-promise-compose": "^1.0.4",
     "@jswork/noop": "^1.0.0",
     "antd": "^4.21.3",
     "antd-form-builder": "^2.1.4",

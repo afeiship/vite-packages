@@ -1,5 +1,5 @@
 import { expect } from '@jest/globals';
-import { deepAssignSetting } from '../src/components/utility';
+import { deepAssignSetting } from '../src/components/misc';
 import { Setting } from '../src/components/types';
 
 describe('deepAssignSetting', () => {

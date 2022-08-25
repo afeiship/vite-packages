@@ -3,7 +3,6 @@ import { Meta } from 'antd-form-builder';
 import { FormInstance, FormProps } from 'antd';
 
 export type MetaInOut = (meta: Meta) => Meta;
-export type CompositeInputInOut = (args: CompositeInput) => CompositeInput;
 export type StandardProcessor = { fn?: MetaInOut; once?: boolean };
 export type Processor = StandardProcessor | MetaInOut | Promise<MetaInOut>;
 export type Label = string | null | undefined | React.ReactElement<any>;

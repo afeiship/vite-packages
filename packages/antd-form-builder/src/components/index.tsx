@@ -3,7 +3,7 @@ import { Form } from 'antd';
 import FormBuilder, { Meta } from 'antd-form-builder';
 import compose from '@jswork/next-promise-compose';
 import { processSchema } from './schema';
-import { isFunction } from './utility';
+import { isFunction } from './misc';
 import {
   MetaProps,
   AntdFormBuilderProps,
