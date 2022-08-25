@@ -5,7 +5,7 @@
   "hooks": {
     "after:init": [
       "t2k",
-      "npm run docs"
+      "npm run predocs"
     ],
     "after:bump": [
       "npm run build"
