@@ -1364,14 +1364,13 @@
 
 "@jswork/antd-form-builder@file:/Users/aric/github/react-ant-form-schema/packages/antd-form-builder":
   "resolved" "file:packages/antd-form-builder"
-  "version" "1.0.4"
+  "version" "1.0.6"
   dependencies:
     "@jswork/next-promise-compose" "^1.0.4"
     "@jswork/noop" "^1.0.0"
     "antd" "^4.21.3"
     "antd-form-builder" "^2.1.4"
     "classnames" "^2.2.6"
-    "cypress" "^10.2.0"
     "prop-types" "^15.8.1"
     "tslib" "^2.4.0"
 

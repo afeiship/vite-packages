@@ -19,7 +19,7 @@ const DEFAULT_META: MetaProps = {
 };
 
 const AntdFormBuilder = (inProps: AntdFormBuilderProps) => {
-  const { meta, setting, children, form, processors, ...props } = inProps;
+  const { meta, header, setting, children, form, processors, ...props } = inProps;
   const [processedMeta, setProcessedMeta] = React.useState({ ...DEFAULT_META });
   const [once, setOnce] = useState<boolean>(false);
   const [tick, setTick] = useState<number>(0);
@@ -56,6 +56,7 @@ const AntdFormBuilder = (inProps: AntdFormBuilderProps) => {
 
   return (
     <Form form={form} onValuesChange={forceUpdate} {...props}>
+      {header}
       <FormBuilder meta={processedMeta} form={form} />
       {children}
     </Form>

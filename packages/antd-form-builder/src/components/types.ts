@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Meta } from 'antd-form-builder';
 import { FormInstance, FormProps } from 'antd';
 
@@ -22,6 +22,7 @@ export interface MetaProps extends Meta {
 export interface AntdFormBuilderProps extends FormProps {
   form: FormInstance;
   meta: () => MetaProps;
+  header?: ReactNode;
   processors?: Processor[];
   setting?: Setting;
 }
