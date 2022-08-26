@@ -8,6 +8,7 @@ export type Processor = StandardProcessor | MetaInOut | Promise<MetaInOut>;
 export type Label = string | null | undefined | React.ReactElement<any>;
 export type Widget = string | null | undefined | React.ReactElement<any>;
 export type SchemaValue = [Label, Widget?, any?];
+export type SelectorType = 'find' | 'filter';
 export type Setting = {
   schema: {
     [key: string]: SchemaValue;

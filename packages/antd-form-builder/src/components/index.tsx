@@ -3,7 +3,7 @@ import { Form } from 'antd';
 import FormBuilder, { Meta } from 'antd-form-builder';
 import compose from '@jswork/next-promise-compose';
 import { processSchema } from './schema';
-import { isFunction } from './misc';
+import { generateSelector, isFunction } from './misc';
 import {
   MetaProps,
   AntdFormBuilderProps,
@@ -29,6 +29,8 @@ const AntdFormBuilder = (inProps: AntdFormBuilderProps) => {
 
   const getComposite = (inMeta: Meta) => {
     const fns: MetaInOut[] = [];
+    const $ = generateSelector(inMeta, 'find');
+    const $$ = generateSelector(inMeta, 'filter');
     if (!processors?.length) return Promise.resolve(inMeta);
     processors!.forEach((processor: Processor) => {
       const isFunc = isFunction(processor);
@@ -38,7 +40,8 @@ const AntdFormBuilder = (inProps: AntdFormBuilderProps) => {
       if (normalized.fn) fns.push(normalized.fn);
     });
     setOnce(true);
-    return compose(...fns)({ meta: inMeta, form, forceUpdate });
+
+    return compose(...fns)({ meta: inMeta, form, $, $$, forceUpdate });
   };
 
   useEffect(() => {
