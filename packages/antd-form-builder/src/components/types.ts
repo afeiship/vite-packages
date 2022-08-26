@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Meta } from 'antd-form-builder';
+import { FormItemLayoutType, Meta } from 'antd-form-builder';
 import { FormInstance, FormProps } from 'antd';
 
 export type MetaInOut = (meta: Meta) => Meta;
@@ -15,8 +15,9 @@ export type Setting = {
   };
 };
 
-export interface MetaProps extends Meta {
+export interface MetaProps extends Omit<Meta, 'formItemLayout'> {
   setting?: Setting;
+  formItemLayout?: FormItemLayoutType | FormItemLayoutType[] | null;
 }
 
 export interface AntdFormBuilderProps extends FormProps {
