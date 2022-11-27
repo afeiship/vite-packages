@@ -1,23 +1,18 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "devDependencies": {
-    "lerna": "^3.22.1"
-  },
+  "workspaces": [
+    "plugins/*"
+  ],
   "scripts": {
     "lerna:clean": "lerna clean",
     "lerna:list": "lerna list",
     "lerna:bootstrap": "lerna bootstrap",
-    "lerna:publish": "lerna publish --no-git-tag-version",
-    "v3:info": "cd packages/v3 && npm info",
-    "v4:info": "cd packages/v4 && npm info"
+    "build": "lerna run build --since master --no-private",
+    "build:all": "lerna run build",
+    "publish": "npm run build && lerna publish --no-private"
   },
-  "dependencies": {
-    "prettier": "^2.7.1"
+  "devDependencies": {
+    "lerna": "^6.0.3"
   }
 }
