@@ -1,6 +1,6 @@
 {
   "name": "@jswork/vite-require-context",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Require context for vite.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
