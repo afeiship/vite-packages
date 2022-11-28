@@ -1,6 +1,10 @@
 export default (inModuleFiles) => {
   return (inFilename: string) => {
-    const value = inModuleFiles[inFilename];
-    return value?.default || value;
+    for (const key in inModuleFiles) {
+      if (key.includes(inFilename)) {
+        return inModuleFiles[key];
+      }
+    }
+    return null;
   };
 };
