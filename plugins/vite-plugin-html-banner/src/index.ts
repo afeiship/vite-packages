@@ -2,13 +2,15 @@ import bannerDefaults from '@jswork/banner-defaults';
 import "@jswork/next";
 import "@jswork/next-nice-comments";
 
-export default () => {
+type Options = { banner: string[]; }
+
+export default (inOptions?: Options) => {
   return {
-    name: 'banner-html',
+    name: 'vite-html-banner',
     transformIndexHtml(html) {
       return (
         nx.niceComments(
-          bannerDefaults(),
+          inOptions?.banner || bannerDefaults(),
           'html'
         ) + html
       );
