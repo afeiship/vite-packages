@@ -31,17 +31,14 @@ const VitePwaPromotion = (inProps: VitePwaPromotionProps) => {
     updateServiceWorker
   } = useRegisterSW({
     onRegisteredSW(swUrl, r) {
-      // eslint-disable-next-line no-console
       console.log(`Service Worker at: ${swUrl}`);
       r &&
         setInterval(() => {
-          // eslint-disable-next-line no-console
           console.log('Checking for sw update');
           void r.update();
         }, interval /* 20s for testing purposes */);
     },
     onRegisterError(error) {
-      // eslint-disable-next-line no-console
       console.log('SW registration error', error);
     }
   });
