@@ -21,10 +21,11 @@ type VitePwaPromotionProps = {
   className?: string;
   lang?: string;
   interval?: number;
+  mute?: boolean;
 } & HTMLAttributes<any>;
 
 const VitePwaPromotion = (inProps: VitePwaPromotionProps) => {
-  const { className, lang, interval, ...props } = inProps;
+  const { className, lang, mute, interval, ...props } = inProps;
   const t = (key: string) => locals[lang!][key] || key;
   const {
     needRefresh: [needRefresh, setNeedRefresh],
@@ -34,7 +35,7 @@ const VitePwaPromotion = (inProps: VitePwaPromotionProps) => {
       console.log(`Service Worker at: ${swUrl}`);
       r &&
         setInterval(() => {
-          console.log('Checking for sw update');
+          !mute && console.log('Checking for sw update');
           void r.update();
         }, interval /* 20s for testing purposes */);
     },
@@ -58,7 +59,8 @@ const VitePwaPromotion = (inProps: VitePwaPromotionProps) => {
 
 VitePwaPromotion.defaultProps = {
   lang: 'en-US',
-  interval: 20 * 1000
+  interval: 20 * 1000,
+  mute: false
 };
 
 export default VitePwaPromotion;
