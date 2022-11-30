@@ -1,7 +1,7 @@
 {
   "name": "@jswork/vite-pwa-promotion",
   "homepage": "https://js.work",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A vite pwa promotion component.",
   "license": "MIT",
   "main": "dist/index.js",
