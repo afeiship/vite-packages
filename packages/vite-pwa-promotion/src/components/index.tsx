@@ -20,10 +20,11 @@ const locals = {
 type VitePwaPromotionProps = {
   className?: string;
   lang?: string;
+  interval?: number;
 } & HTMLAttributes<any>;
 
 const VitePwaPromotion = (inProps: VitePwaPromotionProps) => {
-  const { className, lang, ...props } = inProps;
+  const { className, lang, interval, ...props } = inProps;
   const t = (key: string) => locals[lang!][key] || key;
   const {
     needRefresh: [needRefresh, setNeedRefresh],
@@ -37,7 +38,7 @@ const VitePwaPromotion = (inProps: VitePwaPromotionProps) => {
           // eslint-disable-next-line no-console
           console.log('Checking for sw update');
           void r.update();
-        }, 5 * 1000 /* 20s for testing purposes */);
+        }, interval /* 20s for testing purposes */);
     },
     onRegisterError(error) {
       // eslint-disable-next-line no-console
@@ -59,7 +60,8 @@ const VitePwaPromotion = (inProps: VitePwaPromotionProps) => {
 };
 
 VitePwaPromotion.defaultProps = {
-  lang: 'en-US'
+  lang: 'en-US',
+  interval: 20 * 1000
 };
 
 export default VitePwaPromotion;
