@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
-import { VitePWA } from 'vite-plugin-pwa';
+import {VitePWA} from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 // https://github.com/antfu/vite-plugin-pwa
@@ -12,5 +12,5 @@ export default defineConfig({
     outDir: '../docs',
     emptyOutDir: true
   },
-  plugins: [reactRefresh(), VitePWA()]
+  plugins: [reactRefresh(), VitePWA()],
 });

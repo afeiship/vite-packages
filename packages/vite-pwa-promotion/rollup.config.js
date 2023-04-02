@@ -1,5 +1,4 @@
 import typescript from 'rollup-plugin-typescript2';
-import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
 import scss from 'rollup-plugin-scss';
@@ -22,10 +21,11 @@ export default [
       sourcemap: false,
       name: 'VitePwaPromotionComponent',
       globals: {
+        'virtual:pwa-register/react': 'VitePwaRegisterComponent',
         '@jswork/noop': 'noop',
         'prop-types': 'PropTypes',
-        classnames: 'classNames',
-        react: 'React',
+        'classnames': 'classNames',
+        'react': 'React',
         'react-dom': 'ReactDOM'
       }
     },
@@ -54,19 +54,6 @@ export default [
       typescript({
         tsconfig: 'tsconfig.build.json',
         clean: true
-      }),
-      commonjs({
-        include: ['node_modules/**'],
-        namedExports: {
-          'node_modules/react-is/index.js': Object.keys(require('react-is')),
-          'node_modules/react/react.js': [
-            'Children',
-            'Component',
-            'PropTypes',
-            'createElement'
-          ],
-          'node_modules/react-dom/index.js': ['render']
-        }
       })
     ]
   },
