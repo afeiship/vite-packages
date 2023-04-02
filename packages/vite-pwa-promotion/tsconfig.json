@@ -25,7 +25,10 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "types": [
+      "vite-plugin-pwa/client"
+    ]
   },
   "include": [
     "src",
