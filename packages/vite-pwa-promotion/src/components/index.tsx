@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from 'react';
 import cx from 'classnames';
-// @ts-ignore
 import { useRegisterSW } from 'virtual:pwa-register/react';
 
 const CLASS_NAME = 'vite-pwa-promotion';
