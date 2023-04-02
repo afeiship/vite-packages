@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from 'react';
 import cx from 'classnames';
-import { useRegisterSW } from 'virtual:pwa-register/react';
 
 const CLASS_NAME = 'vite-pwa-promotion';
 const locals = {
@@ -21,10 +20,11 @@ type VitePwaPromotionProps = {
   lang?: string;
   interval?: number;
   mute?: boolean;
+  useRegisterSW: any;
 } & HTMLAttributes<any>;
 
 const VitePwaPromotion = (inProps: VitePwaPromotionProps) => {
-  const { className, lang, mute, interval, ...props } = inProps;
+  const { className, lang, mute, interval, useRegisterSW, ...props } = inProps;
   const t = (key: string) => locals[lang!][key] || key;
   const {
     needRefresh: [needRefresh, setNeedRefresh],

@@ -21,7 +21,7 @@ export default [
       sourcemap: false,
       name: 'VitePwaPromotionComponent',
       globals: {
-        'virtual:pwa-register/react': 'VitePwaRegisterComponent',
+        'vite-plugin-pwa': 'VitePwa',
         '@jswork/noop': 'noop',
         'prop-types': 'PropTypes',
         'classnames': 'classNames',
