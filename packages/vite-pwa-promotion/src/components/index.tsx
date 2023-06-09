@@ -4,14 +4,14 @@ import cx from 'classnames';
 const CLASS_NAME = 'vite-pwa-promotion';
 const locals = {
   'en-US': {
-    'update-available': 'New content available, click on reload button to update.',
+    'update-available': '🚀 New content available, click on reload button to update.',
     'reload': 'Reload',
     'close': 'Close'
   },
   'zh-CN': {
     'update-available': '有新内容可用，点击重新加载按钮更新。',
-    'reload': '重新加载',
-    'close': '关闭'
+    'reload': '⚡️ 重新加载',
+    'close': '🧨 关闭'
   }
 };
 
