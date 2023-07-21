@@ -27,7 +27,7 @@ function vitePluginFileCallback(options: Options) {
         const fileCont = isJSON ? json5.parse(fileContent) : fileContent;
         const processedContent = callback(fileCont);
         const parsed = isJSON ? JSON.stringify(processedContent, null, 2) : processedContent;
-        await fs.writeFile(filePath, processedContent, charset);
+        await fs.writeFile(filePath, parsed, charset);
 
         console.log('File operation successful.');
       } catch (error) {
