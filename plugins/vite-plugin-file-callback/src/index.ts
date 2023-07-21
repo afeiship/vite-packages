@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
+import json5 from 'json5';
 
 declare var wx: any;
 
@@ -20,8 +21,12 @@ function vitePluginFileCallback(options: Options) {
       const { callback, filepath, charset } = { ...defaults, ...options };
       try {
         const filePath = path.resolve(process.cwd(), filepath);
+        const extention = path.extname(filePath);
         const fileContent = await fs.readFile(filePath, charset);
-        const processedContent = callback(fileContent);
+        const isJSON = extention === '.json' || extention === '.json5';
+        const fileCont = isJSON ? json5.parse(fileContent) : fileContent;
+        const processedContent = callback(fileCont);
+        const parsed = isJSON ? JSON.stringify(processedContent, null, 2) : processedContent;
         await fs.writeFile(filePath, processedContent, charset);
 
         console.log('File operation successful.');

@@ -51,5 +51,8 @@
       ],
       "@babel/preset-typescript"
     ]
+  },
+  "dependencies": {
+    "json5": "^2.2.3"
   }
 }
