@@ -1,6 +1,6 @@
 {
   "name": "@jswork/vite-plugin-file-callback",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vite plugin that allows users to customize file handling and modification through callback functions.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
