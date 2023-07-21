@@ -13,9 +13,19 @@ npm install @jswork/vite-plugin-file-callback
 
 ## usage
 ```js
-import vitePluginFileCallback from '@jswork/vite-plugin-file-callback';
+import fileCallback from '@jswork/vite-plugin-file-callback';
 
-// usage goes here.
+// Get envs:
+const env = ENV[process.env.NODE_ENV];
+
+// Use plugin:
+fileCallback({
+  filepath: 'src/manifest.json',
+  callback: (content) => {
+    nx.set(content, 'mp-weixin.appid', env['VITE_APP_APPID']);
+    return content;
+  }
+})
 ```
 
 ## license
