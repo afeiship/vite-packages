@@ -13,14 +13,11 @@ interface Options {
 const defaults: { charset: BufferEncoding } = { charset: 'utf8' };
 
 function vitePluginFileCallback(options: Options) {
-  let initialized = false;
-
   return {
     name: 'vite-plugin-file-callback',
     apply: 'build',
 
-    async writeBundle() {
-      if (initialized) return;
+    async buildStart() {
       const { callback, filepath, charset } = { ...defaults, ...options };
       try {
         const filePath = path.resolve(process.cwd(), filepath);
@@ -31,7 +28,6 @@ function vitePluginFileCallback(options: Options) {
         const processedContent = callback(fileCont);
         const parsed = isJSON ? JSON.stringify(processedContent, null, 2) : processedContent;
         await fs.writeFile(filePath, parsed, charset);
-        initialized = true;
         console.log('File operation successful./hasbuild:');
       } catch (error) {
         console.error('Error performing file operation:', error);
