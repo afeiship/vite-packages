@@ -5,7 +5,7 @@ import json5 from 'json5';
 declare var wx: any;
 
 interface Options {
-  callback: (content: string) => string;
+  callback: (content: string | object) => string;
   path: string;
   charset?: BufferEncoding;
 }
