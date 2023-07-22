@@ -6,7 +6,7 @@ declare var wx: any;
 
 interface Options {
   callback: (content: string) => string;
-  filepath: string;
+  path: string;
   charset?: BufferEncoding;
 }
 
@@ -18,7 +18,7 @@ function vitePluginFileCallback(options: Options) {
     apply: 'build',
 
     async buildStart() {
-      const { callback, filepath, charset } = { ...defaults, ...options };
+      const { callback, path: filepath, charset } = { ...defaults, ...options };
       try {
         const filePath = path.resolve(process.cwd(), filepath);
         const extention = path.extname(filePath);
