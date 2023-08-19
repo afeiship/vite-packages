@@ -2791,10 +2791,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@jswork/banner-defaults@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.npmmirror.com/@jswork/banner-defaults/-/banner-defaults-1.0.5.tgz#3de21c291b50b16cd85e6dfaf53bb298d88be184"
-  integrity sha512-HE5ZYMTLrfOYnXoghdwOxYLlbNxraYzBIsOdRRfqeV7UaKaTZ7D33o0ENzbXtAT734DrK+CNv8i/RikEP1AFfA==
+"@jswork/banner-defaults@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@jswork/banner-defaults/-/banner-defaults-1.0.8.tgz#92869acb2826a08b77596d2f7d61a6efc711071d"
+  integrity sha512-SHKvC3rh4jnIx8tJqaSRjzi1IsdE2rGLE9eI3d16kJNubLNag4nFve6nSsGv22wLGInfvpRUXXwdFj6/vqoufA==
   dependencies:
     dateformat "^3.0.3"
 

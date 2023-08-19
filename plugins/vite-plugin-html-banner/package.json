@@ -41,7 +41,7 @@
   "boilerplate": "generator-typescript",
   "homepage": "https://js.work",
   "dependencies": {
-    "@jswork/banner-defaults": "^1.0.5",
+    "@jswork/banner-defaults": "^1.0.8",
     "@jswork/next-nice-comments": "^1.0.6"
   },
   "peerDependencies": {
