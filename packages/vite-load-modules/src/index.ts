@@ -2,7 +2,7 @@ declare var wx: any;
 
 const viteLoadModules = (moduleFiles, inName: string) => {
   const stores: any = {};
-  const moduleRE = new RegExp(`^\.\/${inName}\/(.*)\.\w+$`);
+  const moduleRE = new RegExp(`^\\.\\/${inName}\\/(.*)\\.\\w+`);
   for (const path in moduleFiles) {
     const name = path.replace(moduleRE, '$1');
     const useStoreFn = moduleFiles[path].default;
