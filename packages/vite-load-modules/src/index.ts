@@ -1,6 +1,6 @@
 declare var wx: any;
 
-const viteLoadModules = (moduleFiles, inName: string): void => {
+const viteLoadModules = (moduleFiles, inName: string) => {
   const stores: any = {};
   const moduleRE = new RegExp(`^\.\/${inName}\/(.*)\.\w+$`);
   for (const path in moduleFiles) {
