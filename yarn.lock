@@ -2836,6 +2836,16 @@
     execa "^6.1.0"
     undertaker-registry "^2.0.0"
 
+"@jswork/gulp-registry@^1.0.43":
+  version "1.0.43"
+  resolved "https://registry.npmmirror.com/@jswork/gulp-registry/-/gulp-registry-1.0.43.tgz#9c6c5330709e3e8be98d3caf2b1c0df3053843d6"
+  integrity sha512-mdIR4gr0OgD9gdXzqzlZdDcMFQm1WwAzUDzgzeHPoG2xrWFUKSLWZHHdXVBUt7Mm0W05qcfJ5JAc8zXkSfBnww==
+  dependencies:
+    "@jswork/check-modules" "^1.0.2"
+    capitalize "^2.0.4"
+    execa "^6.1.0"
+    undertaker-registry "^2.0.0"
+
 "@jswork/next-array-replace@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npmmirror.com/@jswork/next-array-replace/-/next-array-replace-1.0.0.tgz#f06991681fb2a42190b9ce6f428d13bee6f2390f"
