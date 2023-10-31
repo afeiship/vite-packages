@@ -1,6 +1,6 @@
 import clipboardy from 'clipboardy';
 
-const viteCopyURL = () => {
+export default () => {
   return {
     name: 'vite-copy-url',
     configureServer({ config }) {
@@ -13,10 +13,3 @@ const viteCopyURL = () => {
     },
   };
 };
-
-// for commonjs es5 require
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = viteCopyURL;
-}
-
-export default viteCopyURL;
