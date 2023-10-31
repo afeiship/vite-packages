@@ -5,6 +5,8 @@ export default defineConfig({
   format: ['cjs', 'esm' /*'iife' */],
   // globalName: 'i18nHelper',
   dts: true,
+  clean: true,
+  cjsInterop: true,
   sourcemap: true,
   outExtension({ format }) {
     return {
