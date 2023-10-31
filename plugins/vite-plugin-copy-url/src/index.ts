@@ -1,13 +1,22 @@
 import clipboardy from 'clipboardy';
 
-module.exports = function () {
+const viteCopyURL = () => {
   return {
     name: 'vite-copy-url',
-    configureServer(server) {
-      const { host, port } = server.config.server;
-      const url = `http://${host}:${port || 5173}`;
+    configureServer({ config }) {
+      const { host, port } = config.server;
+      const _host = host || '0.0.0.0';
+      const _port = port || 5173;
+      const url = `http://${_host}:${_port}`;
       clipboardy.writeSync(url);
       console.log(`[vite-copy-url]: Has been copied to clipboard: ${url}`);
     },
   };
 };
+
+// for commonjs es5 require
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = viteCopyURL;
+}
+
+export default viteCopyURL;
