@@ -1,6 +1,6 @@
 {
   "name": "@jswork/vite-plugin-copy-url",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A plugin for copy develop URL to clipboard.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
