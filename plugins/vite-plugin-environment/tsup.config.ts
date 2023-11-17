@@ -8,6 +8,7 @@ export default defineConfig({
   // globalName: 'i18nHelper',
   // external: ['react'],
   dts: true,
+  external: ['vite'],
   sourcemap: true,
   outExtension({ format }) {
     return {
