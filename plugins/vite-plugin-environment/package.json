@@ -1,6 +1,6 @@
 {
   "name": "@jswork/vite-plugin-environment",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easily expose environment variables in Vite.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
