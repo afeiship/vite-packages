@@ -26,24 +26,18 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
   return {
     name: 'vite-plugin-environment',
     config({ root = process.cwd(), envDir }, { mode }) {
+      // 1.get env
       const evnRoot = path.join(root, envDir || '.');
       const env = loadEnv(mode, evnRoot, prefix);
-      // predefined variables
+
+      // 2. predefined vars
       const envNameKey = `${prefix}ENVNAME`;
-      const vars = { [envNameKey]: mode };
       const processVars = {};
+      env[envNameKey] = mode;
 
-      // all variables
+      // 3. process.env
       for (const key in env) {
-        if (!key.startsWith(prefix)) {
-          const newEnvKey = `${prefix}${key}`;
-          vars[newEnvKey] = env[key];
-        }
-      }
-
-      // define to process.env
-      for (const key in env) {
-        const value = vars[key];
+        const value = env[key];
         const processKey = `process.env.${key}`;
         processVars[processKey] = JSON.stringify(value);
       }
