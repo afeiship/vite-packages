@@ -1,11 +1,10 @@
 import type { Plugin } from 'vite';
 import { loadEnv } from 'vite';
 
+// @thank to: https://github.com/ElMassimo/vite-plugin-environment/
+
 export type EnvVarDefault = string | null | undefined;
-
 export type EnvVarDefaults = Record<string, EnvVarDefault>;
-
-export type EnvVars = 'all' | string[] | EnvVarDefaults;
 
 export interface EnvOptions {
   /**
@@ -18,20 +17,36 @@ export interface EnvOptions {
 
 /**
  * Expose `process.env` environment variables to your client code.
- *
- * @param  {EnvVars} vars Provide a list of variables you wish to expose,
- *                        or an object that maps variable names to defaut values
- *                        to use when a variable is not defined.
- *                        Use 'all' to expose all variables that match the prefix.
  * @param  {EnvOptions} options
  */
-export default function EnvironmentPlugin(vars: EnvVars, options: EnvOptions = {}): Plugin {
+export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
   const { prefix = 'VITE_' } = options;
   // const defineOn = 'process.env';
   return {
     name: 'vite-plugin-environment',
     config({ root = process.cwd(), envDir }, { mode }) {
-      return { define: {} };
+      const env = loadEnv(mode, root, envDir);
+      // predefined variables
+      const envNameKey = `${prefix}ENVNAME`;
+      const vars = { [envNameKey]: mode };
+      const processVars = {};
+
+      // all variables
+      for (const key in env) {
+        if (!key.startsWith(prefix)) {
+          const newEnvKey = `${prefix}${key}`;
+          vars[newEnvKey] = env[key];
+        }
+      }
+
+      // define to process.env
+      for (const key in vars) {
+        const value = vars[key];
+        const processKey = `process.env.${key}`;
+        processVars[processKey] = JSON.stringify(value);
+      }
+
+      return { define: processVars };
     },
   };
 }
