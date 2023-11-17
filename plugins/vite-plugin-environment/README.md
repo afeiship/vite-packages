@@ -1,5 +1,5 @@
-# i18n-helper
-> I18n helper.
+# vite-plugin-environment
+> Easily expose environment variables in Vite.
 
 [![version][version-image]][version-url]
 [![license][license-image]][license-url]
@@ -8,14 +8,20 @@
 
 ## installation
 ```shell
-npm install @jswork/i18n-helper
+npm install @jswork/vite-plugin-environment
 ```
 
 ## usage
 ```js
-import i18nHelper from '@jswork/i18n-helper';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import vitePluginEnvironment from '@jswork/vite-plugin-environment';
 
-// usage goes here.
+// https://vitejs.dev/config/
+export default defineConfig({
+  envDir: 'config/environments',
+  plugins: [react(), vitePluginEnvironment({ prefix: 'VITE_' })]
+});
 ```
 
 ## license
