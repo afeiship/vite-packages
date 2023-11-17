@@ -10,7 +10,7 @@ export interface EnvOptions {
   /**
    * Only variables that match this prefix will be made available.
    * @default ''
-   * @example EnvironmentPlugin('all', { prefix: 'VUE_APP_' })
+   * @example EnvironmentPlugin({ prefix: 'VUE_APP_' })
    */
   prefix?: string;
 }
