@@ -1,6 +1,6 @@
 import type { Plugin } from 'vite';
 import { loadEnv } from 'vite';
-import fs from 'fs';
+import path from 'path';
 
 // @thank to: https://github.com/ElMassimo/vite-plugin-environment/
 
@@ -26,8 +26,7 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
   return {
     name: 'vite-plugin-environment',
     config({ root = process.cwd(), envDir }, { mode }) {
-      // @ts-ignore
-      const evnRoot = fs.join(root, envDir);
+      const evnRoot = path.join(root, envDir || '.');
       const env = loadEnv(mode, evnRoot, prefix);
       // predefined variables
       const envNameKey = `${prefix}ENVNAME`;
@@ -43,7 +42,7 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
       }
 
       // define to process.env
-      for (const key in vars) {
+      for (const key in env) {
         const value = vars[key];
         const processKey = `process.env.${key}`;
         processVars[processKey] = JSON.stringify(value);
