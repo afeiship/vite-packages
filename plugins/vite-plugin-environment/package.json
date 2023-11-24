@@ -2,9 +2,17 @@
   "name": "@jswork/vite-plugin-environment",
   "version": "1.0.2",
   "description": "Easily expose environment variables in Vite.",
+  "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "typings": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsup",
     "test": "jest",
