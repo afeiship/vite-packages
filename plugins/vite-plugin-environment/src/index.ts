@@ -1,6 +1,8 @@
 import type { Plugin } from 'vite';
 import { loadEnv } from 'vite';
 import path from 'path';
+import { formatInTimeZone } from 'date-fns-tz';
+
 
 // @thank to: https://github.com/ElMassimo/vite-plugin-environment/
 
@@ -36,7 +38,7 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
       const envPackageVersionKey = `${prefix}VERSION`;
       const processVars = {};
       env[envNameKey] = mode;
-      env[envBuildTimeKey] = new Date().toISOString();
+      env[envBuildTimeKey] = formatInTimeZone(new Date(), 'Asia/Shanghai', 'yyyy-MM-dd HH:mm:ss');
       env[envPackageVersionKey] = process.env.npm_package_gtcVersion || process.env.npm_package_version || '0.0.0';
 
       // 3. process.env
