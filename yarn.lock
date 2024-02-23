@@ -2920,10 +2920,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@jswork/banner-defaults@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.npmjs.org/@jswork/banner-defaults/-/banner-defaults-1.0.8.tgz#92869acb2826a08b77596d2f7d61a6efc711071d"
-  integrity sha512-SHKvC3rh4jnIx8tJqaSRjzi1IsdE2rGLE9eI3d16kJNubLNag4nFve6nSsGv22wLGInfvpRUXXwdFj6/vqoufA==
+"@jswork/banner-defaults@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmmirror.com/@jswork/banner-defaults/-/banner-defaults-1.0.10.tgz#3976b8d39c7d2edccd57c49021da7fc10b5ab993"
+  integrity sha512-XhYLUUH54Ir5D9HCWRvkCqAxiS72alZ7AkH42uko7RFwfAraEt/KUBBTCA2kfOeoTGIfWDQB9PIxjwfM9rx58A==
   dependencies:
     dateformat "^3.0.3"
 
@@ -21499,8 +21499,10 @@ watchpack@^1.4.0:
   resolved "https://registry.npmmirror.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
+    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"

@@ -32,8 +32,12 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
 
       // 2. predefined vars
       const envNameKey = `${prefix}ENVNAME`;
+      const envBuildTimeKey = `${prefix}BUILDTIME`;
+      const envPackageVersionKey = `${prefix}VERSION`;
       const processVars = {};
       env[envNameKey] = mode;
+      env[envBuildTimeKey] = new Date().toISOString();
+      env[envPackageVersionKey] = process.env.npm_package_gtcVersion || process.env.npm_package_version || '0.0.0';
 
       // 3. process.env
       for (const key in env) {
