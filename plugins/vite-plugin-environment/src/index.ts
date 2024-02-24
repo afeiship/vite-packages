@@ -3,6 +3,7 @@ import { loadEnv } from 'vite';
 import path from 'path';
 import sdf from '@jswork/simple-date-format';
 import es8date from '@jswork/east8date';
+import { createRequire } from 'module';
 
 // @thank to: https://github.com/ElMassimo/vite-plugin-environment/
 
@@ -27,9 +28,14 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
   return {
     name: 'vite-plugin-environment',
     config({ root = process.cwd(), envDir }, { mode }) {
+      // 0. pkg
+      const __dirname = path.dirname(new URL(import.meta.url).pathname);
+      const require = createRequire(__dirname);
+      const pkg = require(path.join(root, 'package.json'));
+
       // 1.get env
-      const evnRoot = path.join(root, envDir || '.');
-      const env = loadEnv(mode, evnRoot, prefix);
+      const envRoot = path.join(root, envDir || '.');
+      const env = loadEnv(mode, envRoot, prefix);
 
       // 2. predefined vars
       const envNameKey = `${prefix}ENVNAME`;
@@ -37,7 +43,7 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
       const envPackageVersionKey = `${prefix}VERSION`;
       const processVars = {};
       const datetime = sdf('datetime', es8date());
-      const version = process.env.npm_package_gtcVersion || process.env.npm_package_version;
+      const version = pkg.gtc?.version || pkg.gtcVersion || pkg.version;
 
       env[envNameKey] = mode;
       env[envBuildTimeKey] = datetime;

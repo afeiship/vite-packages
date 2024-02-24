@@ -8,11 +8,9 @@
     "pretty": true,
     "esModuleInterop": true,
     "skipDefaultLibCheck": true,
-    "module": "es2015",
+    "module": "es2020",
     "moduleResolution": "node",
     "noImplicitAny": false
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
