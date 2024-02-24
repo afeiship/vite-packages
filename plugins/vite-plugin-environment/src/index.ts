@@ -42,6 +42,7 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
       const datetime = sdf('datetime', es8date());
       const version = pkg.gtc?.version || pkg.gtcVersion || pkg.version;
 
+      // 3. attach predefined vars
       env[envNameKey] = mode;
       env[envBuildTimeKey] = datetime;
       env[envPackageVersionKey] = version as string;
