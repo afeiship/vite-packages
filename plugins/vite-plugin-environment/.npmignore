@@ -6,6 +6,7 @@ test
 __tests__
 build
 gulpfile.js
+src
 
 .editorconfig
 .prettierrc
