@@ -39,7 +39,6 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
       const envNameKey = `${prefix}ENVNAME`;
       const envBuildTimeKey = `${prefix}BUILDTIME`;
       const envPackageVersionKey = `${prefix}VERSION`;
-      const processVars = {};
       const datetime = sdf('datetime', es8date());
       const version = pkg.gtc?.version || pkg.gtcVersion || pkg.version;
 
@@ -47,14 +46,11 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
       env[envBuildTimeKey] = datetime;
       env[envPackageVersionKey] = version as string;
 
-      // 3. process.env
-      for (const key in env) {
-        const value = env[key];
-        const processKey = `process.env.${key}`;
-        processVars[processKey] = JSON.stringify(value);
-      }
-
-      return { define: processVars };
+      return {
+        define: {
+          'process.env': JSON.stringify(env),
+        },
+      };
     },
   };
 }
