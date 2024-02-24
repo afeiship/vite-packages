@@ -9,6 +9,7 @@ import { createRequire } from 'module';
 
 export type EnvVarDefault = string | null | undefined;
 export type EnvVarDefaults = Record<string, EnvVarDefault>;
+
 export interface EnvOptions {
   /**
    * Only variables that match this prefix will be made available.
@@ -24,7 +25,6 @@ export interface EnvOptions {
  */
 export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
   const { prefix = 'VITE_' } = options;
-  // const defineOn = 'process.env';
   return {
     name: 'vite-plugin-environment',
     config({ root = process.cwd(), envDir }, { mode }) {
