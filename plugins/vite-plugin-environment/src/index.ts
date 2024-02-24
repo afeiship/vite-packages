@@ -29,8 +29,7 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
     name: 'vite-plugin-environment',
     config({ root = process.cwd(), envDir }, { mode }) {
       // 0. pkg
-      const __dirname = path.dirname(new URL(import.meta.url).pathname);
-      const require = createRequire(__dirname);
+      const require = createRequire(root);
       const pkg = require(path.join(root, 'package.json'));
 
       // 1.get env
