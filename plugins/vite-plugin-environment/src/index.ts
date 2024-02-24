@@ -1,6 +1,8 @@
 import type { Plugin } from 'vite';
 import { loadEnv } from 'vite';
 import path from 'path';
+import sdf from '@jswork/simple-date-format';
+import es8date from '@jswork/east8date';
 
 // @thank to: https://github.com/ElMassimo/vite-plugin-environment/
 
@@ -35,9 +37,12 @@ export default function EnvironmentPlugin(options: EnvOptions = {}): Plugin {
       const envBuildTimeKey = `${prefix}BUILDTIME`;
       const envPackageVersionKey = `${prefix}VERSION`;
       const processVars = {};
+      const datetime = sdf('datetime', es8date());
+      const version = process.env.npm_package_gtcVersion || process.env.npm_package_version;
+
       env[envNameKey] = mode;
-      env[envBuildTimeKey] = new Date().toISOString();
-      env[envPackageVersionKey] = process.env.npm_package_gtcVersion || process.env.npm_package_version || '0.0.0';
+      env[envBuildTimeKey] = datetime;
+      env[envPackageVersionKey] = version as string;
 
       // 3. process.env
       for (const key in env) {
