@@ -9,7 +9,6 @@ import { createRequire } from 'module';
 
 export type EnvVarDefault = string | null | undefined;
 export type EnvVarDefaults = Record<string, EnvVarDefault>;
-
 export interface EnvOptions {
   /**
    * Only variables that match this prefix will be made available.
