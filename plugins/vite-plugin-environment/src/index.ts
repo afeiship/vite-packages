@@ -8,7 +8,6 @@ import es8date from '@jswork/east8date';
 
 export type EnvVarDefault = string | null | undefined;
 export type EnvVarDefaults = Record<string, EnvVarDefault>;
-
 export interface EnvOptions {
   /**
    * Only variables that match this prefix will be made available.
