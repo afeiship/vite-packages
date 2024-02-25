@@ -15,7 +15,7 @@
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-typescript": "^7.13.0",
-    "@jswork/gulp-pkg-header": "^1.0.4",
+    "@jswork/gulp-pkg-header": "^1.0.8",
     "@types/jest": "^26.0.23",
     "babel-jest": "^27.0.1",
     "del": "^5.1.0",
@@ -41,8 +41,8 @@
   "boilerplate": "generator-typescript",
   "homepage": "https://js.work",
   "dependencies": {
-    "@jswork/banner-defaults": "^1.0.10",
-    "@jswork/next-nice-comments": "^1.0.6"
+    "@jswork/banner-defaults": "^1.1.2",
+    "@jswork/next-nice-comments": "^1.0.8"
   },
   "peerDependencies": {
     "@jswork/next": "*"

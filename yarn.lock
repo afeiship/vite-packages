@@ -2920,12 +2920,14 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@jswork/banner-defaults@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.npmmirror.com/@jswork/banner-defaults/-/banner-defaults-1.0.10.tgz#3976b8d39c7d2edccd57c49021da7fc10b5ab993"
-  integrity sha512-XhYLUUH54Ir5D9HCWRvkCqAxiS72alZ7AkH42uko7RFwfAraEt/KUBBTCA2kfOeoTGIfWDQB9PIxjwfM9rx58A==
+"@jswork/banner-defaults@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.npmmirror.com/@jswork/banner-defaults/-/banner-defaults-1.1.2.tgz#4eaedd4c606f3a7ec86f6ecdaab647864159844a"
+  integrity sha512-6P2RqxhW8dSdHxxk0segI9bnpsksp92bUdc9m3uqIpGUBRAkB3Ofvh44U0DXV6yEyWD1odPObXtBKdDGg4uKLQ==
   dependencies:
-    dateformat "^3.0.3"
+    "@jswork/east8date" "^1.0.1"
+    "@jswork/read-pkg-json" "^1.0.3"
+    "@jswork/simple-date-format" "^1.0.5"
 
 "@jswork/check-modules@^1.0.2":
   version "1.0.2"
@@ -2990,11 +2992,6 @@
   resolved "https://registry.npmmirror.com/@jswork/next-nice-comments/-/next-nice-comments-1.0.5.tgz#994084ccd158eee571fe1b26ce65438cb31a060f"
   integrity sha512-YB4PbCVdwp9sW0Fi04pU9FrIM8wmXqjlRcD+fOciX8uR8KmVyFwbrayOUzQ1o9czn7hQctENHg4R39QMj17SXg==
 
-"@jswork/next-nice-comments@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.npmmirror.com/@jswork/next-nice-comments/-/next-nice-comments-1.0.6.tgz#70d32f18af357c8be6e13bc7a2d8a0882014daf4"
-  integrity sha512-IZplBBGj1EM+b5h4Ji0hEA9ddt6RAnqJBrDo/3rXLpIHd4dbARNCMnKS4mGVaL85KsfTCvyUb05OQ46suU4pzQ==
-
 "@jswork/next-nice-comments@^1.0.8":
   version "1.0.8"
   resolved "https://registry.npmmirror.com/@jswork/next-nice-comments/-/next-nice-comments-1.0.8.tgz#35c58358cb619d3e529fd0d4f6c23ea8304588fc"
@@ -3038,6 +3035,11 @@
     json2md "^1.6.5"
     prettier "*"
     react-docgen "^5.2.1"
+
+"@jswork/read-pkg-json@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.npmmirror.com/@jswork/read-pkg-json/-/read-pkg-json-1.0.3.tgz#8dc9db203d3d35b2c7c53dd42629eb81653ca30a"
+  integrity sha512-RPFpPEHQhA9CuZZb7S+rO2HTl227Gbon2i5Nuc9Dq8fC5accLEIM2FPo5dTGYYhEbHsoYlDuQCaVQNDnKdvrVw==
 
 "@jswork/simple-date-format@^1.0.5":
   version "1.0.5"

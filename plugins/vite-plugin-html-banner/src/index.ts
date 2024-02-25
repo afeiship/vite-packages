@@ -4,15 +4,14 @@ import '@jswork/next-nice-comments';
 
 type Options = {
   banner: string[];
-  pkg?: any;
 };
 
 export default (inOptions?: Options) => {
-  const { banner, pkg } = nx.mix({ banner: [], pkg: {} }, inOptions);
+  const { banner } = nx.mix({ banner: [] }, inOptions);
   return {
     name: 'vite-html-banner',
     transformIndexHtml(html) {
-      return nx.niceComments(banner || bannerDefaults(pkg), 'html') + html;
+      return nx.niceComments(banner || bannerDefaults(), 'html') + html;
     },
   };
 };
