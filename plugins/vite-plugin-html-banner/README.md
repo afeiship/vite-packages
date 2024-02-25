@@ -13,9 +13,19 @@ npm install @jswork/vite-plugin-html-banner
 
 ## usage
 ```js
-import vitePluginHtmlBanner from '@jswork/vite-plugin-html-banner';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import banner from '@jswork/vite-plugin-html-banner';
 
-// usage goes here.
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react(), banner()],
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  }
+});
 ```
 
 ## license
