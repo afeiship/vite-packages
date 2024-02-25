@@ -7,11 +7,10 @@ type Options = {
 };
 
 export default (inOptions?: Options) => {
-  const { banner } = nx.mix({ banner: [] }, inOptions);
   return {
     name: 'vite-html-banner',
     transformIndexHtml(html) {
-      return nx.niceComments(banner || bannerDefaults(), 'html') + html;
+      return nx.niceComments(inOptions?.banner || bannerDefaults(), 'html') + html;
     },
   };
 };
