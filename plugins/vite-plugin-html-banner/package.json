@@ -1,6 +1,6 @@
 {
   "name": "@jswork/vite-plugin-html-banner",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Vite plugin for html banner comments.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
