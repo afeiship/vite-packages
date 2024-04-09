@@ -9,7 +9,7 @@ type Options = {
 export default (inOptions?: Options) => {
   return {
     name: 'vite-html-banner',
-    transformIndexHtml(html) {
+    transformIndexHtml(html: string) {
       return nx.niceComments(inOptions?.banner || bannerDefaults(), 'html') + html;
     },
   };
