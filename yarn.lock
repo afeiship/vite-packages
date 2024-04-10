@@ -2920,10 +2920,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@jswork/banner-defaults@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.npmmirror.com/@jswork/banner-defaults/-/banner-defaults-1.1.2.tgz#4eaedd4c606f3a7ec86f6ecdaab647864159844a"
-  integrity sha512-6P2RqxhW8dSdHxxk0segI9bnpsksp92bUdc9m3uqIpGUBRAkB3Ofvh44U0DXV6yEyWD1odPObXtBKdDGg4uKLQ==
+"@jswork/banner-defaults@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.npmjs.org/@jswork/banner-defaults/-/banner-defaults-1.1.5.tgz#df917953401727ba2b115d7b7187af0c001e62e2"
+  integrity sha512-DtBrOhP3cy+dHyzjESxied6BPTshTcUiqHMmOaYabAvIAHpggp/EReFG0TPK9dT5NcZXdZuHu3PNtMT6XgTcZA==
   dependencies:
     "@jswork/east8date" "^1.0.1"
     "@jswork/read-pkg-json" "^1.0.3"
@@ -2941,6 +2941,15 @@
   version "1.0.1"
   resolved "https://registry.npmmirror.com/@jswork/east8date/-/east8date-1.0.1.tgz#f663ab32b90a317f027ddc097019e16871e68a9a"
   integrity sha512-0S6IpRC6VQ7vwXI1+/iPV9QkUnuRrpkoF7rOzL+gxpNQ38LdUu8JaywDNhJ4YBDBWfifWFRm+F/LEbLRhDgDzA==
+
+"@jswork/gulp-pkg-header@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@jswork/gulp-pkg-header/-/gulp-pkg-header-1.0.10.tgz#4e48fa2f80aba05c87200db51058afa2825f2a7e"
+  integrity sha512-dO/1q46fir7ZlHXVhB4t6uiQbHNN1TpB5vB4LzlgYhoWBzg22hicObRy7H5TYQLEXadxBuU7kmDrHiiBaxdNHQ==
+  dependencies:
+    "@jswork/next-nice-comments" "^1.0.11"
+    dateformat "^3.0.3"
+    gulp-header "^2.0.9"
 
 "@jswork/gulp-pkg-header@^1.0.4":
   version "1.0.5"
@@ -2986,6 +2995,11 @@
   version "1.0.0"
   resolved "https://registry.npmmirror.com/@jswork/next-array-replace/-/next-array-replace-1.0.0.tgz#f06991681fb2a42190b9ce6f428d13bee6f2390f"
   integrity sha512-PUaWL9HQjldWOo5M3zBszDV9RVxqG+laSwlpZfdQJLDfhg/hfcQ7uKX4QtzlbvVz+yeSPahXj4aI8HILCXJ4dA==
+
+"@jswork/next-nice-comments@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.npmjs.org/@jswork/next-nice-comments/-/next-nice-comments-1.0.11.tgz#acc22aec6bada4108e3297271ac2ea33318c719e"
+  integrity sha512-zKw7be0P9vPhQKid+M+ktAoL9QkuKsYs4f1c5g0j1dtebMUyIiQxHGfjpXIzZrHgwIV8SY2sR0tUFIFKOp9hdQ==
 
 "@jswork/next-nice-comments@^1.0.4":
   version "1.0.5"
@@ -21511,10 +21525,8 @@ watchpack@^1.4.0:
   resolved "https://registry.npmmirror.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
