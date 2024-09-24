@@ -11,7 +11,7 @@ interface Options {
 
 const defaults: Options = {
   verbose: false,
-  extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.css', '.scss', '.yml', '.yaml'],
+  extensions: ['ts', 'tsx', 'js', 'jsx', 'vue', 'css', 'scss', 'yml', 'yaml'],
   updatedAtRegex: /@updated_at:\s*(.*)/,
 };
 
