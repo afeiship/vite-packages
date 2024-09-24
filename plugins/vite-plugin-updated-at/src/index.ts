@@ -18,6 +18,11 @@ const defaults: Options = {
 const PLUGIN_NAME = 'vite-plugin-updated-at';
 const LOG_PREFIX = `[${PLUGIN_NAME}]`;
 
+/**
+ * 由于 Webstorm 中存在 File Cache Conflict 的问题，导致每次会提示文件冲突，因此这里暂时不使用该插件。
+ * @param inOptions
+ */
+
 const factory = (inOptions?: Options) => {
   const { verbose, extensions, updatedAtRegex } = {
     ...defaults,
