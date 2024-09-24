@@ -4,23 +4,27 @@ import path from 'path';
 import dayjs from 'dayjs';
 
 interface Options {
+  verbose?: boolean;
   extensions?: string[];
   updatedAtRegex?: RegExp;
 }
 
 const defaults: Options = {
+  verbose: false,
   extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.css', '.scss', '.yml', '.yaml'],
   updatedAtRegex: /@updated_at:\s*(.*)/,
 };
 
 const PLUGIN_NAME = 'vite-plugin-updated-at';
-// const LOG_PREFIX = `[${PLUGIN_NAME}]`;
+const LOG_PREFIX = `[${PLUGIN_NAME}]`;
 
 const factory = (inOptions?: Options) => {
-  const { extensions, updatedAtRegex } = {
+  const { verbose, extensions, updatedAtRegex } = {
     ...defaults,
     ...inOptions,
   } as Required<Options>;
+
+  const isVerbose = verbose || process.env.NODE_ENV === 'development';
 
   const plugin: Plugin = {
     name: PLUGIN_NAME,
@@ -39,6 +43,10 @@ const factory = (inOptions?: Options) => {
 
           // 更新文件内容
           fs.writeFileSync(filePath, updatedContent, 'utf-8');
+
+          if (isVerbose) {
+            console.log(`${LOG_PREFIX} handleHotUpdate: ${filePath} updated at ${now}`);
+          }
         }
       }
     },
