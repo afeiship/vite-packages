@@ -1,6 +1,7 @@
 {
   "name": "vite-packages",
   "private": true,
+  "version": "1.0.0",
   "workspaces": ["plugins/*", "packages/*"],
   "scripts": {
     "lerna:clean": "lerna clean",
