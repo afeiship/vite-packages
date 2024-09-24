@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-updated-at",
+  "name": "@jswork/vite-plugin-updated-at",
   "version": "1.0.0",
   "description": "Vite plugin for update updated_at field in comments.",
   "main": "./dist/index.cjs.js",
