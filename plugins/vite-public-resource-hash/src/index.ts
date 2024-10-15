@@ -73,8 +73,8 @@ const factory = (inOptions?: Options) => {
         return null;
       }
 
-      // 使用更新后的正则表达式匹配 src 中包含 __content_hash__ 的资源
-      const regex = /src:\s*"\/([^"]+?)\?hash=__content_hash__/g;
+      const regex = /\/([^"]+?)\?hash=__content_hash__/g; // 修改为匹配以/开头的资源
+
       let match;
       let transformedCode = code;
       const replacements: Array<{ placeholder: string; hash: string }> = [];
