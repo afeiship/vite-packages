@@ -14,7 +14,7 @@ interface Options {
 const defaults: Options = {
   patterns: ['src/**/*.{js,jsx,css,scss,json,ts,tsx,yml}'],
   publicDir: 'public',
-  buildDir: 'build',
+  buildDir: 'dist',
 };
 
 const PLUGIN_NAME = 'vite-public-resource-hash';
