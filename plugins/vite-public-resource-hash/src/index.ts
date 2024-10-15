@@ -6,10 +6,12 @@ import crypto from 'crypto';
 
 interface Options {
   patterns?: string[];
+  publicDir?: string;
 }
 
 const defaults: Options = {
   patterns: ['src/**/*.{js,jsx,css,scss,json,ts,tsx,yml}'],
+  publicDir: 'public',
 };
 
 const PLUGIN_NAME = 'vite-public-resource-hash';
@@ -18,7 +20,7 @@ const LOG_PREFIX = `[${PLUGIN_NAME}]`;
 const factory = (inOptions?: Options) => {
   const hashCache = new Map();
   let matchedFiles = new Set<string>();
-  const { patterns } = {
+  const { patterns, publicDir } = {
     ...defaults,
     ...inOptions,
   } as Required<Options>;
@@ -44,7 +46,7 @@ const factory = (inOptions?: Options) => {
             let match;
             while ((match = regex.exec(code)) !== null) {
               const resourcePath = match[1];
-              const absoluteResourcePath = path.resolve(process.cwd(), resourcePath);
+              const absoluteResourcePath = path.resolve(process.cwd(), publicDir, resourcePath);
               resourcePaths.add(absoluteResourcePath);
             }
           } catch (err) {
@@ -82,7 +84,7 @@ const factory = (inOptions?: Options) => {
       // 收集所有需要替换的资源路径
       while ((match = regex.exec(code)) !== null) {
         const resourcePath = match[1];
-        const absolutePath = path.resolve(process.cwd(), 'public', resourcePath);
+        const absolutePath = path.resolve(process.cwd(), publicDir, resourcePath);
 
         if (hashCache.has(absolutePath)) {
           const hash = hashCache.get(absolutePath);
