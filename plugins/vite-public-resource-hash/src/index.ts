@@ -39,7 +39,8 @@ const factory = (inOptions?: Options) => {
         files.map(async (file) => {
           try {
             const code = await readFile(file, 'utf-8');
-            const regex = /src:\s*"\/([^"]+?)\?hash=__content_hash__/g;
+            // /assets/images/sc-card.png?hash=__content_hash__
+            const regex = /\/([^"]+?)\?hash=__content_hash__/g; // 修改为匹配以/开头的资源
             let match;
             while ((match = regex.exec(code)) !== null) {
               const resourcePath = match[1];
