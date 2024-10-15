@@ -35,7 +35,7 @@ export default defineConfig({
 </figure>
 ```
 
-> dist/assets/vite.svg?hash=__content_hash__
+> dist/assets/vite.svg?hash=`__content_hash__``
 ```html
 <figure>
   <img src="/vite.svg?hash=8e3a10e1" alt="Vite Logo" class="logo">
