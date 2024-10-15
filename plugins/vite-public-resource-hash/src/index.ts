@@ -10,7 +10,9 @@ interface Options {
 }
 
 const defaults: Options = {
-  patterns: ['src/**/*.{js,jsx,css,scss,json,ts,tsx,yml}'],
+  patterns: [
+    'src/**/*.{js,jsx,css,scss,json,ts,tsx,yml}'
+  ],
   publicDir: 'public',
 };
 
@@ -18,6 +20,7 @@ const PLUGIN_NAME = 'vite-public-resource-hash';
 const LOG_PREFIX = `[${PLUGIN_NAME}]`;
 
 const factory = (inOptions?: Options) => {
+  const regex =/\/[^'"\s?]+(?:\.[^'"\s?]+)?\?hash=__content_hash__/g
   const hashCache = new Map();
   let matchedFiles = new Set<string>();
   const { patterns, publicDir } = {
@@ -41,12 +44,11 @@ const factory = (inOptions?: Options) => {
         files.map(async (file) => {
           try {
             const code = await readFile(file, 'utf-8');
-            // /assets/images/sc-card.png?hash=__content_hash__
-            const regex = /\/([^"]+?)\?hash=__content_hash__/g; // 修改为匹配以/开头的资源
             let match;
             while ((match = regex.exec(code)) !== null) {
-              const resourcePath = match[1];
-              const absoluteResourcePath = path.resolve(process.cwd(), publicDir, resourcePath);
+              let resourcePath = match[0];
+              resourcePath = resourcePath.replace("?hash=__content_hash__", "");
+              const absoluteResourcePath = path.join(publicDir, resourcePath);
               resourcePaths.add(absoluteResourcePath);
             }
           } catch (err) {
@@ -74,8 +76,6 @@ const factory = (inOptions?: Options) => {
       if (!matchedFiles.has(id)) {
         return null;
       }
-
-      const regex = /\/([^"]+?)\?hash=__content_hash__/g; // 修改为匹配以/开头的资源
 
       let match;
       let transformedCode = code;
