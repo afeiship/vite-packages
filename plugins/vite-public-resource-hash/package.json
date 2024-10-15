@@ -1,5 +1,5 @@
 {
-  "name": "vite-public-resource-hash",
+  "name": "@jswork/vite-public-resource-hash",
   "version": "1.0.1",
   "description": "This Vite plugin replaces __content_hash__ in public resources with actual hashes.",
   "main": "./dist/index.cjs.js",
@@ -39,5 +39,6 @@
   ],
   "dependencies": {
     "fast-glob": "^3.3.2"
-  }
+  },
+  "gitHead": "82aa6bb22ece5d28a1e131a2bb8c0ae7f2deaf6c"
 }
