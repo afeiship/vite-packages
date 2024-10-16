@@ -5,6 +5,13 @@ import fg from 'fast-glob';
 import crypto from 'crypto';
 import { writeFile } from 'node:fs/promises';
 
+/**
+ * @deprecated:
+ * vite 的 public 目录下 assets 会与 workbox 冲突，导致无法缓存，实际上该插件的功能已经由 workbox 实现
+ * 解决方案：用户的图片放在 /static 目录下，不要与 vite 的 assets 目录冲突
+ * 此插件不再维护，请使用 workbox 替代
+ */
+
 interface Options {
   patterns?: string[];
   publicDir?: string;
