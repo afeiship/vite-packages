@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-version",
+  "name": "@jswork/vite-plugin-version",
   "version": "1.0.1",
   "description": "A plugin for vite that generates a version.json file.",
   "main": "./dist/index.cjs.js",
@@ -36,5 +36,6 @@
     "plugin",
     "react",
     "vanilla-javascript"
-  ]
+  ],
+  "gitHead": "e8f69c00db5032ead0e3046e4bb790308b7244c0"
 }
