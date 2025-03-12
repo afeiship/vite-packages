@@ -12,7 +12,7 @@ interface Options {
 }
 
 const defaults: Options = {
-  dest: 'public',
+  dest: 'dist',
 };
 
 const PLUGIN_NAME = 'vite-plugin-version';
@@ -54,6 +54,7 @@ const factory = (inOptions?: Options) => {
       };
 
       const outputDir = path.join(config.root, options.dest);
+      // 确保在构建时创建输出目录
       if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
       }
