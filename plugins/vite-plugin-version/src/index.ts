@@ -45,15 +45,15 @@ const factory = (inOptions?: Options) => {
 
   const plugin: Plugin = {
     name: PLUGIN_NAME,
-    configResolved(config) {
+    async closeBundle() {
       const versionInfo = {
-        mode: config.mode,
-        version: getVersion(config.root),
+        mode: process.env.NODE_ENV || 'development',
+        version: getVersion(process.cwd()),
         githash: getGitHash(),
         build_time: new Date().toISOString(),
       };
 
-      const outputDir = path.join(config.root, options.dest);
+      const outputDir = path.join(process.cwd(), options.dest);
       // 确保在构建时创建输出目录
       if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
