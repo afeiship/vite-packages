@@ -7,11 +7,8 @@
     "lerna:clean": "lerna clean",
     "lerna:list": "lerna list",
     "lerna:bootstrap": "lerna bootstrap",
-    "build": "lerna run build --since master --no-private",
+    "build": "lerna run build --since main --no-private",
     "build:all": "lerna run build",
     "publish": "npm run build && lerna publish --no-private"
-  },
-  "devDependencies": {
-    "lerna": "^7.1.4"
   }
 }

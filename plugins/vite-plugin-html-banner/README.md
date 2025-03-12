@@ -29,16 +29,16 @@ export default defineConfig({
 ```
 
 ## license
-Code released under [the MIT license](https://github.com/afeiship/vite-plugin-html-banner/blob/master/LICENSE.txt).
+Code released under [the MIT license](https://github.com/afeiship/vite-plugin-html-banner/blob/main/LICENSE.txt).
 
 [version-image]: https://img.shields.io/npm/v/@jswork/vite-plugin-html-banner
 [version-url]: https://npmjs.org/package/@jswork/vite-plugin-html-banner
 
 [license-image]: https://img.shields.io/npm/l/@jswork/vite-plugin-html-banner
-[license-url]: https://github.com/afeiship/vite-plugin-html-banner/blob/master/LICENSE.txt
+[license-url]: https://github.com/afeiship/vite-plugin-html-banner/blob/main/LICENSE.txt
 
 [size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/vite-plugin-html-banner
-[size-url]: https://github.com/afeiship/vite-plugin-html-banner/blob/master/dist/vite-plugin-html-banner.min.js
+[size-url]: https://github.com/afeiship/vite-plugin-html-banner/blob/main/dist/vite-plugin-html-banner.min.js
 
 [download-image]: https://img.shields.io/npm/dm/@jswork/vite-plugin-html-banner
 [download-url]: https://www.npmjs.com/package/@jswork/vite-plugin-html-banner

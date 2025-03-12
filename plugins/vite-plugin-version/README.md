@@ -27,16 +27,16 @@ export default defineConfig({
 ```
 
 ## license
-Code released under [the MIT license](https://github.com/afeiship/vite-plugin-version/blob/master/LICENSE.txt).
+Code released under [the MIT license](https://github.com/afeiship/vite-plugin-version/blob/main/LICENSE.txt).
 
 [version-image]: https://img.shields.io/npm/v/@jswork/vite-plugin-version
 [version-url]: https://npmjs.org/package/@jswork/vite-plugin-version
 
 [license-image]: https://img.shields.io/npm/l/@jswork/vite-plugin-version
-[license-url]: https://github.com/afeiship/vite-plugin-version/blob/master/LICENSE.txt
+[license-url]: https://github.com/afeiship/vite-plugin-version/blob/main/LICENSE.txt
 
 [size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/vite-plugin-version
-[size-url]: https://github.com/afeiship/vite-plugin-version/blob/master/dist/index.min.js
+[size-url]: https://github.com/afeiship/vite-plugin-version/blob/main/dist/index.min.js
 
 [download-image]: https://img.shields.io/npm/dm/@jswork/vite-plugin-version
 [download-url]: https://www.npmjs.com/package/@jswork/vite-plugin-version

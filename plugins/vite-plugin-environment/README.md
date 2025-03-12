@@ -25,16 +25,16 @@ export default defineConfig({
 ```
 
 ## license
-Code released under [the MIT license](https://github.com/afeiship/i18n-helper/blob/master/LICENSE.txt).
+Code released under [the MIT license](https://github.com/afeiship/i18n-helper/blob/main/LICENSE.txt).
 
 [version-image]: https://img.shields.io/npm/v/@jswork/i18n-helper
 [version-url]: https://npmjs.org/package/@jswork/i18n-helper
 
 [license-image]: https://img.shields.io/npm/l/@jswork/i18n-helper
-[license-url]: https://github.com/afeiship/i18n-helper/blob/master/LICENSE.txt
+[license-url]: https://github.com/afeiship/i18n-helper/blob/main/LICENSE.txt
 
 [size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/i18n-helper
-[size-url]: https://github.com/afeiship/i18n-helper/blob/master/dist/index.min.js
+[size-url]: https://github.com/afeiship/i18n-helper/blob/main/dist/index.min.js
 
 [download-image]: https://img.shields.io/npm/dm/@jswork/i18n-helper
 [download-url]: https://www.npmjs.com/package/@jswork/i18n-helper

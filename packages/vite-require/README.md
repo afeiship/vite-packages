@@ -19,16 +19,16 @@ import viteRequire from '@jswork/vite-require';
 ```
 
 ## license
-Code released under [the MIT license](https://github.com/afeiship/vite-require/blob/master/LICENSE.txt).
+Code released under [the MIT license](https://github.com/afeiship/vite-require/blob/main/LICENSE.txt).
 
 [version-image]: https://img.shields.io/npm/v/@jswork/vite-require
 [version-url]: https://npmjs.org/package/@jswork/vite-require
 
 [license-image]: https://img.shields.io/npm/l/@jswork/vite-require
-[license-url]: https://github.com/afeiship/vite-require/blob/master/LICENSE.txt
+[license-url]: https://github.com/afeiship/vite-require/blob/main/LICENSE.txt
 
 [size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/vite-require
-[size-url]: https://github.com/afeiship/vite-require/blob/master/dist/vite-require.min.js
+[size-url]: https://github.com/afeiship/vite-require/blob/main/dist/vite-require.min.js
 
 [download-image]: https://img.shields.io/npm/dm/@jswork/vite-require
 [download-url]: https://www.npmjs.com/package/@jswork/vite-require

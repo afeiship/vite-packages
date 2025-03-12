@@ -29,16 +29,16 @@ fileCallback({
 ```
 
 ## license
-Code released under [the MIT license](https://github.com/afeiship/vite-plugin-file-callback/blob/master/LICENSE.txt).
+Code released under [the MIT license](https://github.com/afeiship/vite-plugin-file-callback/blob/main/LICENSE.txt).
 
 [version-image]: https://img.shields.io/npm/v/@jswork/vite-plugin-file-callback
 [version-url]: https://npmjs.org/package/@jswork/vite-plugin-file-callback
 
 [license-image]: https://img.shields.io/npm/l/@jswork/vite-plugin-file-callback
-[license-url]: https://github.com/afeiship/vite-plugin-file-callback/blob/master/LICENSE.txt
+[license-url]: https://github.com/afeiship/vite-plugin-file-callback/blob/main/LICENSE.txt
 
 [size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/vite-plugin-file-callback
-[size-url]: https://github.com/afeiship/vite-plugin-file-callback/blob/master/dist/vite-plugin-file-callback.min.js
+[size-url]: https://github.com/afeiship/vite-plugin-file-callback/blob/main/dist/vite-plugin-file-callback.min.js
 
 [download-image]: https://img.shields.io/npm/dm/@jswork/vite-plugin-file-callback
 [download-url]: https://www.npmjs.com/package/@jswork/vite-plugin-file-callback
