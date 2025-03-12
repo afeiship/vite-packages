@@ -22,6 +22,7 @@ const getGitHash = (): string => {
   try {
     return execSync('git rev-parse --short HEAD').toString().trim();
   } catch (error) {
+    if (process.env.CI) return process.env.CI_COMMIT_SHORT_SHA as string;
     console.warn(`${LOG_PREFIX} Failed to get git hash:`, error);
     return 'unknown';
   }
