@@ -19,10 +19,13 @@ const PLUGIN_NAME = 'vite-plugin-version';
 const LOG_PREFIX = `[${PLUGIN_NAME}]`;
 
 const getGitHash = (): string => {
+  if (process.env.CI && process.env.CI_COMMIT_SHORT_SHA) {
+    return process.env.CI_COMMIT_SHORT_SHA;
+  }
+
   try {
     return execSync('git rev-parse --short HEAD').toString().trim();
   } catch (error) {
-    if (process.env.CI) return process.env.CI_COMMIT_SHORT_SHA as string;
     console.warn(`${LOG_PREFIX} Failed to get git hash:`, error);
     return 'unknown';
   }
